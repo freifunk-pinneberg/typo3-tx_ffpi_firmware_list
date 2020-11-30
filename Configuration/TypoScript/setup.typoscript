@@ -1,0 +1,10 @@
+plugin.tx_ffpifirmwarelist_firmware_list {
+    view {
+        templateRootPaths.0 = EXT:ffpi_firmware_list/Resources/Private/Templates/
+        templateRootPaths.1 = {$plugin.tx_ffpifirmwarelist_router.view.templateRootPath}
+        partialRootPaths.0 = EXT:ffpi_firmware_list/Resources/Private/Partials/
+        partialRootPaths.1 = {$plugin.tx_ffpifirmwarelist_router.view.partialRootPath}
+        layoutRootPaths.0 = EXT:ffpi_firmware_list/Resources/Private/Layouts/
+        layoutRootPaths.1 = {$plugin.tx_ffpifirmwarelist_router.view.layoutRootPath}
+    }
+}

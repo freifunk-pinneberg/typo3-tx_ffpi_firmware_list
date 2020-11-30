@@ -1,0 +1,43 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="content">
+<f:debug>{_all}</f:debug>
+    <table class="contenttable firmware-list">
+        <thead>
+        <tr>
+            <th scope="col">Router</th>
+            <th scope="col">Hardware Version</th>
+            <th scope="col">Installation</th>
+            <th scope="col">Update</th>
+        </tr>
+        </thead>
+        <f:for each="{firmwareList}" as="router" key="unifiedRouterIdentifier">
+
+            <tr id="{unifiedRouterIdentifier}">
+                <td><f:translate key="LLL:EXT:ffpi_firmware_list/Resources/Private/Language/router_names.xlf:{router.router.router}">{router.router.router}</f:translate></td>
+                <td>{router.router.routerVersion}</td>
+                <td>
+                    <f:for each="{router.firmware}" as="firmware" iteration="i">
+                        <f:if condition="{firmware.factory}">
+                            <a href="{firmware.factory.file.publicUrl}">{firmware.factory.firmwareParts.firmwareVersion}</a>
+                        </f:if>
+                        <f:if condition="{i.isLast}">
+                            <f:else><br/></f:else>
+                        </f:if>
+                    </f:for>
+                </td>
+                <td>
+                    <f:for each="{router.firmware}" as="firmware" iteration="i">
+                        <f:if condition="{firmware.sysupgrade}">
+                            <a href="{firmware.sysupgrade.file.publicUrl}">{firmware.sysupgrade.firmwareParts.firmwareVersion}</a>
+                        </f:if>
+                        <f:if condition="{i.isLast}">
+                            <f:else><br/></f:else>
+                        </f:if>
+                    </f:for>
+                </td>
+            </tr>
+        </f:for>
+    </table>
+</f:section>
+</html>

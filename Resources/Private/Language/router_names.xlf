@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" date="2020-11-29T21:34:50Z" product-name="ffpi_firmware_list">
+        <header/>
+        <body>
+            <trans-unit id="raspberry-pi-2">
+                <source>Raspberry Pi 2</source>
+            </trans-unit>
+            <trans-unit id="raspberry-pi">
+                <source>Raspberry Pi</source>
+            </trans-unit>
+            <trans-unit id="tp-link-cpe210">
+                <source>TP-Link CPE210</source>
+            </trans-unit>
+            <trans-unit id="tp-link-cpe220">
+                <source>TP-Link CPE220</source>
+            </trans-unit>
+            <trans-unit id="tp-link-cpe510">
+                <source>TP-Link CPE510</source>
+            </trans-unit>
+            <trans-unit id="tp-link-cpe520">
+                <source>TP-Link CPE520</source>
+            </trans-unit>
+            <trans-unit id="tp-link-tl-wr841n-nd">
+                <source>TP-Link TL-WR841N(D)</source>
+            </trans-unit>
+            <trans-unit id="tp-link-tl-wr842n-nd">
+                <source>TP-Link TL-WR842N(D)</source>
+            </trans-unit>
+            <trans-unit id="tp-link-tl-wr1043n-nd">
+                <source>TP-Link TL-WR1043N(D)</source>
+            </trans-unit>
+            <trans-unit id="tp-link-tl-wdr4300">
+                <source>TP-Link TL-WDR4300</source>
+            </trans-unit>
+            <trans-unit id="tp-link-tl-wdr4300">
+                <source>TP-Link TL-WDR4900</source>
+            </trans-unit>
+            <trans-unit id="ubiquiti-nanostation-m">
+                <source>Ubiquiti Nanostation M</source>
+            </trans-unit>
+            <trans-unit id="ubiquiti-nanostation-m2">
+                <source>Ubiquiti Nanostation M2</source>
+            </trans-unit>
+            <trans-unit id="ubiquiti-nanostation-m5">
+                <source>Ubiquiti Nanostation M5</source>
+            </trans-unit>
+            <trans-unit id="ubiquiti-nanostation-loco-m2">
+                <source>Ubiquiti Nanostation Loco M2</source>
+            </trans-unit>
+            <trans-unit id="ubiquiti-nanostation-loco-m5">
+                <source>Ubiquiti Nanostation Loco M5</source>
+            </trans-unit>
+            <trans-unit id="gl.inet-gl-ar150">
+                <source>GL.iNet GL-AR150</source>
+            </trans-unit>
+            <trans-unit id="gl.inet-gl-ar300m">
+                <source>GL-iNet GL-AR300M</source>
+            </trans-unit>
+            <trans-unit id="gl.inet-gl-ar750">
+                <source>GL.iNet GL-AR750</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
