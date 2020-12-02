@@ -1,23 +1,23 @@
 {
-    "name": "ffpi/ffpi-firmware-list",
-    "type": "typo3-cms-extension",
-    "description": "Freifunk Firmware List",
-    "authors": [
-        {
-            "name": "Kevin Quiatkowski",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "typo3/cms-core": "^9.5 - ^10.4"
-    },
-    "autoload": {
-        "psr-4": {
-            "FFPI\\FfpiFirmwareList\\": "Classes"
-        }
-    },
-    "replace": {
-        "ffpi/ffpi-firmware-list": "self.version",
-        "typo3-ter/ffpi-firmware-list": "self.version"
+  "name": "ffpi/ffpi-firmware-list",
+  "type": "typo3-cms-extension",
+  "description": "Freifunk Firmware List",
+  "authors": [
+    {
+      "name": "Kevin Quiatkowski",
+      "role": "Developer"
     }
+  ],
+  "require": {
+    "typo3/cms-core": "^9.5 - ^10.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "FFPI\\FfpiFirmwareList\\": "Classes"
+    }
+  },
+  "replace": {
+    "ffpi/ffpi-firmware-list": "self.version",
+    "typo3-ter/ffpi-firmware-list": "self.version"
+  }
 }
