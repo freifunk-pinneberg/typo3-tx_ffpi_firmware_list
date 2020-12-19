@@ -1,10 +1,10 @@
-plugin.tx_ffpifirmwarelist_firmware_list {
+plugin.tx_ffpifirmwarelist_firmwarelist {
     view {
-        # cat=plugin.tx_ffpifirmwarelist_router/file; type=string; label=Path to template root (FE)
+        # cat=plugin.tx_ffpifirmwarelist_firmwarelist/file; type=string; label=Path to template root (FE)
         templateRootPath = EXT:ffpi_firmware_list/Resources/Private/Templates/
-        # cat=plugin.tx_ffpifirmwarelist_router/file; type=string; label=Path to template partials (FE)
+        # cat=plugin.tx_ffpifirmwarelist_firmwarelist/file; type=string; label=Path to template partials (FE)
         partialRootPath = EXT:ffpi_firmware_list/Resources/Private/Partials/
-        # cat=plugin.tx_ffpifirmwarelist_router/file; type=string; label=Path to template layouts (FE)
+        # cat=plugin.tx_ffpifirmwarelist_firmwarelist/file; type=string; label=Path to template layouts (FE)
         layoutRootPath = EXT:ffpi_firmware_list/Resources/Private/Layouts/
     }
 }

@@ -1,20 +1,22 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:firmware="http://typo3.org/ns/FFPI/FfpiFirmwareList/ViewHelper"
+      data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 <f:section name="content">
-<f:debug>{_all}</f:debug>
+
     <table class="contenttable firmware-list">
         <thead>
         <tr>
-            <th scope="col">Router</th>
-            <th scope="col">Hardware Version</th>
-            <th scope="col">Installation</th>
-            <th scope="col">Update</th>
+            <th scope="col"><f:translate key="header.router" /></th>
+            <th scope="col"><f:translate key="header.hw_version" /></th>
+            <th scope="col"><f:translate key="header.factory" /></th>
+            <th scope="col"><f:translate key="header.sysupgrade" /></th>
         </tr>
         </thead>
         <f:for each="{firmwareList}" as="router" key="unifiedRouterIdentifier">
 
             <tr id="{unifiedRouterIdentifier}">
-                <td><f:translate key="LLL:EXT:ffpi_firmware_list/Resources/Private/Language/router_names.xlf:{router.router.router}">{router.router.router}</f:translate></td>
+                <td><f:translate key="LLL:EXT:ffpi_firmware_list/Resources/Private/Language/router_names.xlf:{router.router.router}"><firmware:routerNameFallback unifiedRouterIdentifier="{router.router.router}" /></f:translate></td>
                 <td>{router.router.routerVersion}</td>
                 <td>
                     <f:for each="{router.firmware}" as="firmware" iteration="i">

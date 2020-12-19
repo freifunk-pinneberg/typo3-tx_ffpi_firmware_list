@@ -1,0 +1,16 @@
+mod {
+    wizards.newContentElement.wizardItems.plugins {
+        elements {
+            ffpifirmwarelist_firmwarelist {
+                iconIdentifier = ffpi_firmware_list-plugin-firmwarelist
+                title = LLL:EXT:ffpi_firmware_list/Resources/Private/Language/locallang.xlf:tx_ffpifirmwarelist_firmwarelist.title
+                description = LLL:EXT:ffpi_firmware_list/Resources/Private/Language/locallang.xlf:tx_ffpifirmwarelist_firmwarelist.description
+                tt_content_defValues {
+                    CType = list
+                    list_type = ffpifirmwarelist_firmwarelist
+                }
+            }
+        }
+        show = *
+    }
+}

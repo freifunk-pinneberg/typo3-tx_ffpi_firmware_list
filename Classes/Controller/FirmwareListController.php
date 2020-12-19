@@ -23,8 +23,6 @@ class FirmwareListController extends ActionController
 
     protected function initializeAction()
     {
-        $this->settings['folder'] = '2:/';
-        $this->settings['blacklistet_path_segments'] = '/modules/, /openwrt/, .manifest, .htaccess, /_h5ai/, .ipk, /stock/';
         $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
         $this->folder = $resourceFactory->getFolderObjectFromCombinedIdentifier($this->settings['folder']);
         $this->blacklistedPathSegments = array_map('trim', explode(',', $this->settings['blacklistet_path_segments']));
@@ -32,8 +30,7 @@ class FirmwareListController extends ActionController
 
     public function listAction()
     {
-        $files = $this->folder->getFiles(0, 0, Folder::FILTER_MODE_USE_OWN_AND_STORAGE_FILTERS, true);
-
+        $files = $this->folder->getFiles(0, 0, Folder::FILTER_MODE_USE_OWN_AND_STORAGE_FILTERS, true, 'name');
         $firmwareList = [];
 
         // Factory Files

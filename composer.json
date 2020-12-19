@@ -17,7 +17,7 @@
     }
   },
   "replace": {
-    "ffpi/firmware-list": "self.version",
+    "ffpi_firmware_list": "self.version",
     "typo3-ter/ffpi-firmware-list": "self.version"
   }
 }

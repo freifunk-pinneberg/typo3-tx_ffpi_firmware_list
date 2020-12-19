@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>LLL:EXT:ffpi_firmware_list/Resources/Private/Language/locallang.xlf:tx_ffpifirmwarelist_firmwarelist.title</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.folder>
+                        <label>Storage and Folder</label>
+                        <config>
+                            <type>input</type>
+                            <size>20</size>
+                            <max>255</max>
+                            <eval>trim</eval>
+                            <default>1:/downloads/</default>
+                        </config>
+                    </settings.folder>
+                    <settings.blacklistet_path_segments>
+                        <label>Excluded files and folders (substrings, comma seperated)</label>
+                        <config>
+                            <type>input</type>
+                            <size>20</size>
+                            <max>255</max>
+                            <eval>trim</eval>
+                            <default>/modules/, /openwrt/, .manifest, .htaccess, /_h5ai/, .ipk, /stock/</default>
+                        </config>
+                    </settings.blacklistet_path_segments>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

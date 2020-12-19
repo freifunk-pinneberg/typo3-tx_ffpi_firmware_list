@@ -3,6 +3,15 @@
     <file source-language="en" datatype="plaintext" date="2020-11-29T21:34:50Z" product-name="ffpi_firmware_list">
         <header/>
         <body>
+            <trans-unit id="8devices-carambola2-board">
+                <source>8devices Carambola 2</source>
+            </trans-unit>
+            <trans-unit id="alfa-network-ap121">
+                <source>ALFA Network AP121</source>
+            </trans-unit>
+            <trans-unit id="alfa-network-ap121u">
+                <source>ALFA Network AP121U</source>
+            </trans-unit>
             <trans-unit id="raspberry-pi-2">
                 <source>Raspberry Pi 2</source>
             </trans-unit>
@@ -45,11 +54,47 @@
             <trans-unit id="ubiquiti-nanostation-m5">
                 <source>Ubiquiti Nanostation M5</source>
             </trans-unit>
+            <trans-unit id="ubiquiti-rocket-m2">
+                <source>Ubiquiti Rocket M2</source>
+            </trans-unit>
+            <trans-unit id="ubiquiti-rocket-m5">
+                <source>Ubiquiti Rocket M5</source>
+            </trans-unit>
             <trans-unit id="ubiquiti-nanostation-loco-m2">
                 <source>Ubiquiti Nanostation Loco M2</source>
             </trans-unit>
             <trans-unit id="ubiquiti-nanostation-loco-m5">
                 <source>Ubiquiti Nanostation Loco M5</source>
+            </trans-unit>
+            <trans-unit id="ubiquiti-picostation">
+                <source>Ubiquiti Picostation</source>
+            </trans-unit>
+            <trans-unit id="ubiquiti-picostation-m2">
+                <source>Ubiquiti Picostation M2</source>
+            </trans-unit>
+            <trans-unit id="ubiquiti-unifi-ac-lite">
+                <source>Ubiquiiti UniFi AC Lite</source>
+            </trans-unit>
+            <trans-unit id="ubiquiti-unifi-ac-pro">
+                <source>Ubiquiiti UniFi AC Pro</source>
+            </trans-unit>
+            <trans-unit id="ubiquiti-unifi-ap-pro">
+                <source>Ubiquiti UniFi AP Pro</source>
+            </trans-unit>
+            <trans-unit id="ubiquiti-bullet-m2">
+                <source>Ubiquiti Bullet M2</source>
+            </trans-unit>
+            <trans-unit id="ubiquiti-bullet-m5">
+                <source>Ubiquiti Bullet M5</source>
+            </trans-unit>
+            <trans-unit id="ubiquiti-bullet">
+                <source>Ubiquiti Bullet</source>
+            </trans-unit>
+            <trans-unit id="gl-inet-6408a">
+                <source>GL-iNet 6408A</source>
+            </trans-unit>
+            <trans-unit id="gl-inet-6416a">
+                <source>GL.iNet 6416A</source>
             </trans-unit>
             <trans-unit id="gl.inet-gl-ar150">
                 <source>GL.iNet GL-AR150</source>
