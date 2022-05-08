@@ -45,6 +45,9 @@
             <trans-unit id="tp-link-tl-wdr4300">
                 <source>TP-Link TL-WDR4900</source>
             </trans-unit>
+            <trans-unit id="ubiquiti-airgateway-lr">
+                <source>Ubiquiti airGateway-LR</source>
+            </trans-unit>
             <trans-unit id="ubiquiti-nanostation-m">
                 <source>Ubiquiti Nanostation M</source>
             </trans-unit>
@@ -54,11 +57,23 @@
             <trans-unit id="ubiquiti-nanostation-m5">
                 <source>Ubiquiti Nanostation M5</source>
             </trans-unit>
+            <trans-unit id="ubiquiti-rocket-m">
+                <source>Ubiquiti Rocket M</source>
+            </trans-unit>
+            <trans-unit id="ubiquiti-rocket-m-ti">
+                <source>Ubiquiti Rocket M Titanium</source>
+            </trans-unit>
             <trans-unit id="ubiquiti-rocket-m2">
                 <source>Ubiquiti Rocket M2</source>
             </trans-unit>
+            <trans-unit id="ubiquiti-rocket-m2-ti">
+                <source>Ubiquiti Rocket M2 Titanium</source>
+            </trans-unit>
             <trans-unit id="ubiquiti-rocket-m5">
                 <source>Ubiquiti Rocket M5</source>
+            </trans-unit>
+            <trans-unit id="Ubiquiti rocket-m5-ti">
+                <source>Ubiquiti Rocket M5 Titanium</source>
             </trans-unit>
             <trans-unit id="ubiquiti-nanostation-loco-m2">
                 <source>Ubiquiti Nanostation Loco M2</source>
@@ -75,11 +90,26 @@
             <trans-unit id="ubiquiti-unifi-ac-lite">
                 <source>Ubiquiiti UniFi AC Lite</source>
             </trans-unit>
+            <trans-unit id="ubiquiti-unifi-ac-lite-mesh">
+                <source>Ubiquiiti UniFi AC Mesh Lite</source>
+            </trans-unit>
+            <trans-unit id="ubiquiti-unifi-ac-mesh-pro">
+                <source>Ubiquiiti UniFi AC Mesh Pro</source>
+            </trans-unit>
+            <trans-unit id="ubiquiti-unifi-ac-mesh">
+                <source>Ubiquiiti UniFi AC Mesh</source>
+            </trans-unit>
             <trans-unit id="ubiquiti-unifi-ac-pro">
                 <source>Ubiquiiti UniFi AC Pro</source>
             </trans-unit>
             <trans-unit id="ubiquiti-unifi-ap-pro">
                 <source>Ubiquiti UniFi AP Pro</source>
+            </trans-unit>
+            <trans-unit id="ubiquiti-unifi-ap">
+                <source>Ubiquiti UniFi AP</source>
+            </trans-unit>
+            <trans-unit id="ubiquiti-unifi-ap-lr">
+                <source>Ubiquiti UniFi AP LR</source>
             </trans-unit>
             <trans-unit id="ubiquiti-bullet-m2">
                 <source>Ubiquiti Bullet M2</source>
@@ -95,6 +125,9 @@
             </trans-unit>
             <trans-unit id="gl-inet-6416a">
                 <source>GL.iNet 6416A</source>
+            </trans-unit>
+            <trans-unit id="gl-ar150">
+                <source>GL.iNet GL-AR150</source>
             </trans-unit>
             <trans-unit id="gl.inet-gl-ar150">
                 <source>GL.iNet GL-AR150</source>

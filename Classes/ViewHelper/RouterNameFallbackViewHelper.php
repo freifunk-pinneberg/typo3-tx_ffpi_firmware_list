@@ -22,7 +22,11 @@ class RouterNameFallbackViewHelper extends AbstractViewHelper
         'gl-inet' => 'GL.iNet',
         'zyxel' => 'ZyXEL',
         'lemaker' => 'LeMaker',
-        'wd' => 'Western Digital'
+        'wd' => 'Western Digital',
+        '8devices' => '8devices',
+        'onion' => 'Onion',
+        'aerohive' => 'Aerohive',
+        'ocedo' => 'Ocedo'
     ];
 
     public function initializeArguments()
