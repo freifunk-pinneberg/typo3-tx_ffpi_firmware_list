@@ -66,6 +66,9 @@
             <trans-unit id="tp-link-tl-wr1043n-nd">
                 <source>TP-Link TL-WR1043N(D)</source>
             </trans-unit>
+            <trans-unit id="tp-link-tl-wr1043n">
+                <source>TP-Link TL-WR1043N</source>
+            </trans-unit>
             <trans-unit id="tp-link-tl-wdr3500">
                 <source>TP-Link TL-WDR3500</source>
             </trans-unit>
@@ -133,19 +136,19 @@
                 <source>Ubiquiti UniFi</source>
             </trans-unit>
             <trans-unit id="ubiquiti-unifi-ac-lite">
-                <source>Ubiquiiti UniFi AC Lite</source>
+                <source>Ubiquiti UniFi AC Lite</source>
             </trans-unit>
             <trans-unit id="ubiquiti-unifi-ac-lite-mesh">
-                <source>Ubiquiiti UniFi AC Mesh Lite</source>
+                <source>Ubiquiti UniFi AC Mesh Lite</source>
             </trans-unit>
             <trans-unit id="ubiquiti-unifi-ac-mesh-pro">
-                <source>Ubiquiiti UniFi AC Mesh Pro</source>
+                <source>Ubiquiti UniFi AC Mesh Pro</source>
             </trans-unit>
             <trans-unit id="ubiquiti-unifi-ac-mesh">
-                <source>Ubiquiiti UniFi AC Mesh</source>
+                <source>Ubiquiti UniFi AC Mesh</source>
             </trans-unit>
             <trans-unit id="ubiquiti-unifi-ac-pro">
-                <source>Ubiquiiti UniFi AC Pro</source>
+                <source>Ubiquiti UniFi AC Pro</source>
             </trans-unit>
             <trans-unit id="ubiquiti-unifi-ap-pro">
                 <source>Ubiquiti UniFi AP Pro</source>
