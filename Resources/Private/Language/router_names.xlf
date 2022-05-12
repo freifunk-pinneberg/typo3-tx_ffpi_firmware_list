@@ -18,6 +18,12 @@
             <trans-unit id="raspberry-pi">
                 <source>Raspberry Pi</source>
             </trans-unit>
+            <trans-unit id="tp-link-archer-c5">
+                <source>TP-Link Archer C5</source>
+            </trans-unit>
+            <trans-unit id="tp-link-archer-c7">
+                <source>TP-Link Archer C7</source>
+            </trans-unit>
             <trans-unit id="tp-link-cpe210">
                 <source>TP-Link CPE210</source>
             </trans-unit>
@@ -30,23 +36,53 @@
             <trans-unit id="tp-link-cpe520">
                 <source>TP-Link CPE520</source>
             </trans-unit>
+            <trans-unit id="tp-link-re450">
+                <source>TP-Link RE450</source>
+            </trans-unit>
             <trans-unit id="tp-link-tl-wr841n-nd">
                 <source>TP-Link TL-WR841N(D)</source>
             </trans-unit>
             <trans-unit id="tp-link-tl-wr842n-nd">
                 <source>TP-Link TL-WR842N(D)</source>
             </trans-unit>
+            <trans-unit id="tp-link-tl-wr840n">
+                <source>TP-Link TL-WR840N</source>
+            </trans-unit>
             <trans-unit id="tp-link-tl-wr940n">
                 <source>TP-Link TL-WR940N</source>
+            </trans-unit>
+            <trans-unit id="tp-link-tl-wr703n">
+                <source>TP-Link TL-WR703N</source>
+            </trans-unit>
+            <trans-unit id="tp-link-tl-wr710n">
+                <source>TP-Link TL-WR710N</source>
+            </trans-unit>
+            <trans-unit id="tp-link-tl-wr740n-nd">
+                <source>TP-Link TL-WR740N(D)</source>
+            </trans-unit>
+            <trans-unit id="tp-link-tl-wr741n-nd">
+                <source>TP-Link TL-WR741N(D)</source>
             </trans-unit>
             <trans-unit id="tp-link-tl-wr1043n-nd">
                 <source>TP-Link TL-WR1043N(D)</source>
             </trans-unit>
+            <trans-unit id="tp-link-tl-wdr3500">
+                <source>TP-Link TL-WDR3500</source>
+            </trans-unit>
+            <trans-unit id="tp-link-tl-wdr3600">
+                <source>TP-Link TL-WDR3600</source>
+            </trans-unit>
             <trans-unit id="tp-link-tl-wdr4300">
                 <source>TP-Link TL-WDR4300</source>
             </trans-unit>
-            <trans-unit id="tp-link-tl-wdr4300">
+            <trans-unit id="tp-link-tl-wdr4900">
                 <source>TP-Link TL-WDR4900</source>
+            </trans-unit>
+            <trans-unit id="ubiquiti-airrouter">
+                <source>Ubiquiti airRouter</source>
+            </trans-unit>
+            <trans-unit id="ubiquiti-airgateway">
+                <source>Ubiquiti airGateway</source>
             </trans-unit>
             <trans-unit id="ubiquiti-airgateway-lr">
                 <source>Ubiquiti airGateway-LR</source>
@@ -75,8 +111,11 @@
             <trans-unit id="ubiquiti-rocket-m5">
                 <source>Ubiquiti Rocket M5</source>
             </trans-unit>
-            <trans-unit id="Ubiquiti rocket-m5-ti">
+            <trans-unit id="ubiquiti-rocket-m5-ti">
                 <source>Ubiquiti Rocket M5 Titanium</source>
+            </trans-unit>
+            <trans-unit id="ubiquiti-nanostation-loco-m">
+                <source>Ubiquiti Nanostation Loco M</source>
             </trans-unit>
             <trans-unit id="ubiquiti-nanostation-loco-m2">
                 <source>Ubiquiti Nanostation Loco M2</source>
@@ -89,6 +128,9 @@
             </trans-unit>
             <trans-unit id="ubiquiti-picostation-m2">
                 <source>Ubiquiti Picostation M2</source>
+            </trans-unit>
+            <trans-unit id="ubiquiti-unifi">
+                <source>Ubiquiti UniFi</source>
             </trans-unit>
             <trans-unit id="ubiquiti-unifi-ac-lite">
                 <source>Ubiquiiti UniFi AC Lite</source>
@@ -113,6 +155,9 @@
             </trans-unit>
             <trans-unit id="ubiquiti-unifi-ap-lr">
                 <source>Ubiquiti UniFi AP LR</source>
+            </trans-unit>
+            <trans-unit id="ubiquiti-bullet-m">
+                <source>Ubiquiti Bullet M</source>
             </trans-unit>
             <trans-unit id="ubiquiti-bullet-m2">
                 <source>Ubiquiti Bullet M2</source>
