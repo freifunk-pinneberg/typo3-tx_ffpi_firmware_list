@@ -36,6 +36,9 @@
             <trans-unit id="tp-link-tl-wr842n-nd">
                 <source>TP-Link TL-WR842N(D)</source>
             </trans-unit>
+            <trans-unit id="tp-link-tl-wr940n">
+                <source>TP-Link TL-WR940N</source>
+            </trans-unit>
             <trans-unit id="tp-link-tl-wr1043n-nd">
                 <source>TP-Link TL-WR1043N(D)</source>
             </trans-unit>
@@ -116,6 +119,18 @@
             </trans-unit>
             <trans-unit id="ubiquiti-bullet-m5">
                 <source>Ubiquiti Bullet M5</source>
+            </trans-unit>
+            <trans-unit id="ubiquiti-erx">
+                <source>Ubiquiti EdgeRouter X</source>
+            </trans-unit>
+            <trans-unit id="ubnt-erx">
+                <source>Ubiquiti EdgeRouter X</source>
+            </trans-unit>
+            <trans-unit id="ubiquiti-erx-sfp">
+                <source>Ubiquiti EdgeRouter X SFP</source>
+            </trans-unit>
+            <trans-unit id="ubnt-erx-sfp">
+                <source>Ubiquiti EdgeRouter X SFP</source>
             </trans-unit>
             <trans-unit id="ubiquiti-bullet">
                 <source>Ubiquiti Bullet</source>
