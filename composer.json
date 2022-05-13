@@ -2,6 +2,7 @@
   "name": "ffpi/firmware-list",
   "type": "typo3-cms-extension",
   "description": "Freifunk Firmware List",
+  "license": "GPL-3.0",
   "authors": [
     {
       "name": "Kevin Quiatkowski",
@@ -19,5 +20,10 @@
   "replace": {
     "ffpi_firmware_list": "self.version",
     "typo3-ter/ffpi-firmware-list": "self.version"
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "ffpi_firmware_list"
+    }
   }
 }
