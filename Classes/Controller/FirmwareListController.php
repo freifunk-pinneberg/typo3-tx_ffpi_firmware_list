@@ -54,7 +54,7 @@ class FirmwareListController extends ActionController
             }
         }
 
-        ksort($firmwareList,  SORT_NATURAL);
+        ksort($firmwareList, SORT_NATURAL);
 
         $this->view->assign('settings', $this->settings);
         $this->view->assign('firmwareList', $firmwareList);

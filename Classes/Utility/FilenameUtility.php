@@ -45,8 +45,8 @@ class FilenameUtility
      */
     public static function stringContainsArray(string $haystack, array $needles): bool
     {
-        foreach ($needles as $needle){
-            if (str_contains($haystack, $needle)){
+        foreach ($needles as $needle) {
+            if (str_contains($haystack, $needle)) {
                 return true;
             }
         }

@@ -4,7 +4,9 @@
         <sDEF>
             <ROOT>
                 <TCEforms>
-                    <sheetTitle>LLL:EXT:ffpi_firmware_list/Resources/Private/Language/locallang.xlf:tx_ffpifirmwarelist_firmwarelist.title</sheetTitle>
+                    <sheetTitle>
+                        LLL:EXT:ffpi_firmware_list/Resources/Private/Language/locallang.xlf:tx_ffpifirmwarelist_firmwarelist.title
+                    </sheetTitle>
                 </TCEforms>
                 <type>array</type>
                 <el>

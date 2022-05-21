@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-    <file target-language="de" datatype="plaintext" original="messages" date="2016-12-23T20:53:37Z" product-name="ffpi_firmware_list">
-        <header />
-        <body>
-            <trans-unit id="tx_ffpifirmwarelist_firmwarelist.title">
-                <target>Firmware Liste</target>
-            </trans-unit>
-            <trans-unit id="tx_ffpifirmwarelist_firmwarelist.description">
-                <target>Liste mit Firmware Downloads</target>
-            </trans-unit>
-            <trans-unit id="header.router">
-                <target>Router</target>
-            </trans-unit>
-            <trans-unit id="header.hw_version">
-                <target>Hardware Version</target>
-            </trans-unit>
-            <trans-unit id="header.factory">
-                <target>Installation</target>
-            </trans-unit>
-            <trans-unit id="header.sysupgrade">
-                <target>Update</target>
-            </trans-unit>
+	<file target-language="de" datatype="plaintext" original="messages" date="2016-12-23T20:53:37Z" product-name="ffpi_firmware_list">
+		<header />
+		<body>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.title">
+				<target>Firmware Liste</target>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.description">
+				<target>Liste mit Firmware Downloads</target>
+			</trans-unit>
+			<trans-unit id="header.router">
+				<target>Router</target>
+			</trans-unit>
+			<trans-unit id="header.hw_version">
+				<target>Hardware Version</target>
+			</trans-unit>
+			<trans-unit id="header.factory">
+				<target>Installation</target>
+			</trans-unit>
+			<trans-unit id="header.sysupgrade">
+				<target>Update</target>
+			</trans-unit>
 
-        </body>
-    </file>
+		</body>
+	</file>
 </xliff>
