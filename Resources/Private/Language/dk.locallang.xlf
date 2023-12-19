@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file target-language="dk" datatype="plaintext" original="messages" date="2023-12-19T20:53:37Z" product-name="ffpi_firmware_list">
+		<header />
+		<body>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.title">
+				<target>Firmware-liste</target>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.description">
+				<target>Liste med firmware-downloads</target>
+			</trans-unit>
+			<trans-unit id="header.router">
+				<target>Router</target>
+			</trans-unit>
+			<trans-unit id="header.hw_version">
+				<target>Hardware-version</target>
+			</trans-unit>
+			<trans-unit id="header.factory">
+				<target>Installation af firmware</target>
+			</trans-unit>
+			<trans-unit id="header.sysupgrade">
+				<target>Opdatering</target>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file target-language="no" datatype="plaintext" original="messages" date="2023-12-19T20:53:37Z" product-name="ffpi_firmware_list">
+		<header />
+		<body>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.title">
+				<target>Liste over fastvare</target>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.description">
+				<target>Liste med nedlastinger av fastvare</target>
+			</trans-unit>
+			<trans-unit id="header.router">
+				<target>Ruter</target>
+			</trans-unit>
+			<trans-unit id="header.hw_version">
+				<target>Versjon av maskinvare</target>
+			</trans-unit>
+			<trans-unit id="header.factory">
+				<target>Installasjon</target>
+			</trans-unit>
+			<trans-unit id="header.sysupgrade">
+				<target>Oppdatering</target>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>
