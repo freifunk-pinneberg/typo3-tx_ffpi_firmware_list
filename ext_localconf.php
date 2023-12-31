@@ -3,14 +3,14 @@
 defined('TYPO3_MODE') || die('Access denied.');
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'FFPI.FfpiFirmwareList',
+    'FfpiFirmwareList',
     'Firmwarelist',
     [
-        'FirmwareList' => 'list'
+        \FFPI\FfpiFirmwareList\Controller\FirmwareListController::class => 'list'
     ],
     // non-cacheable actions
     [
-        'FirmwareList' => ''
+        \FFPI\FfpiFirmwareList\Controller\FirmwareListController::class => ''
     ]
 );
 
