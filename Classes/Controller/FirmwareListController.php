@@ -3,6 +3,8 @@
 namespace FFPI\FfpiFirmwareList\Controller;
 
 use FFPI\FfpiFirmwareList\Utility\FilenameUtility;
+use TYPO3\CMS\Core\Cache\CacheManager;
+use TYPO3\CMS\Core\Page\AssetCollector;
 use TYPO3\CMS\Core\Resource\Folder;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -16,46 +18,60 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  */
 class FirmwareListController extends ActionController
 {
-    /** @var Folder */
+    /** @var Folder $folder */
     protected $folder;
 
+    /** @var array $blacklistedPathSegments */
     protected $blacklistedPathSegments = [];
 
-    protected function initializeAction()
+    protected function initializeAction(): void
     {
         $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
         $this->folder = $resourceFactory->getFolderObjectFromCombinedIdentifier($this->settings['folder']);
         $this->blacklistedPathSegments = array_map('trim', explode(',', $this->settings['blacklistet_path_segments']));
     }
 
-    public function listAction()
+    public function listAction(): void
     {
-        $files = $this->folder->getFiles(0, 0, Folder::FILTER_MODE_USE_OWN_AND_STORAGE_FILTERS, true, 'name');
-        $firmwareList = [];
+        $assetCollector = GeneralUtility::makeInstance(AssetCollector::class);
+        $assetCollector->addStyleSheet('FirmwareList', 'EXT:ffpi_firmware_list/Resources/Public/Css/FirmwareList.css');
 
-        // Factory Files
-        foreach ($files as $file) {
-            if (FilenameUtility::stringContainsArray($file->getIdentifier(), $this->blacklistedPathSegments)) {
-                continue;
-            }
+        $cacheManager = GeneralUtility::makeInstance(CacheManager::class);
+        $cacheKey = 'ffpi_firmware_list_cache_' . $this->folder->getCombinedIdentifier();
+        $cacheKey = str_replace([':', '/', '\\', ' '], '_', $cacheKey);
+        $cache = $cacheManager->getCache('ffpi_firmware_list_cache');
 
-            $firmwareParts = FilenameUtility::getFirmwareParts($file->getName());
-            $unifiedRouterIdentifier = FilenameUtility::createUnifiedRouterIdentifier($firmwareParts);
-            if ($firmwareParts['sysupgrade']) {
-                $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['sysupgrade']['firmwareParts'] = $firmwareParts;
-                $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['sysupgrade']['file'] = $file;
+        if ($cache->has($cacheKey)) {
+            $firmwareList = $cache->get($cacheKey);
+        } else {
+            $files = $this->folder->getFiles(0, 0, Folder::FILTER_MODE_USE_OWN_AND_STORAGE_FILTERS, true, 'name');
+            $firmwareList = [];
+
+            foreach ($files as $file) {
+                if (FilenameUtility::stringContainsArray($file->getIdentifier(), $this->blacklistedPathSegments)) {
+                    continue;
+                }
+
+                $firmwareParts = FilenameUtility::getFirmwareParts($file->getName());
+                $unifiedRouterIdentifier = FilenameUtility::createUnifiedRouterIdentifier($firmwareParts);
+                if ($firmwareParts['sysupgrade']) {
+                    $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['sysupgrade']['firmwareParts'] = $firmwareParts;
+                    $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['sysupgrade']['file'] = $file->toArray();
+                    $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['sysupgrade']['file']['publicUrl'] = $file->getPublicUrl();
+                    $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['sysupgrade']['file']['md5'] = $file->getStorage()->hashFile($file, 'md5');
+                } else {
+                    $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['factory']['firmwareParts'] = $firmwareParts;
+                    $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['factory']['file'] = $file->toArray();
+                    $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['factory']['file']['publicUrl'] = $file->getPublicUrl();
+                    $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['factory']['file']['md5'] = $file->getStorage()->hashFile($file, 'md5');
+                }
                 $firmwareList[$unifiedRouterIdentifier]['router']['router'] = $firmwareParts['router'];
                 $firmwareList[$unifiedRouterIdentifier]['router']['routerVersion'] = $firmwareParts['routerVersion'];
-            } else {
-                $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['factory']['firmwareParts'] = $firmwareParts;
-                $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['factory']['file'] = $file;
-                $firmwareList[$unifiedRouterIdentifier]['router']['router'] = $firmwareParts['router'];
-                $firmwareList[$unifiedRouterIdentifier]['router']['routerVersion'] = $firmwareParts['routerVersion'];
             }
+
+            ksort($firmwareList, SORT_NATURAL);
+            $cache->set($cacheKey, $firmwareList, [], 604800); // 604800 sekunden = 1 woche
         }
-
-        ksort($firmwareList, SORT_NATURAL);
-
         $this->view->assign('settings', $this->settings);
         $this->view->assign('firmwareList', $firmwareList);
     }

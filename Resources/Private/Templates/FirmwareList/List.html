@@ -3,7 +3,6 @@
       data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 <f:section name="content">
-
     <table class="contenttable firmware-list">
         <thead>
         <tr>
@@ -21,7 +20,20 @@
                 <td>
                     <f:for each="{router.firmware}" as="firmware" iteration="i">
                         <f:if condition="{firmware.factory}">
-                            <a href="{firmware.factory.file.publicUrl}">{firmware.factory.firmwareParts.firmwareVersion}</a>
+                            <a href="{firmware.factory.file.publicUrl}" download>{firmware.factory.firmwareParts.firmwareVersion}</a>
+                            <span class="download-info-button">ⓘ</span>
+                            <div class="download-info-button__overlay">
+                                <h4>Infos zum Download</h4>
+                                <dl>
+                                    <dt><f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.router" />:</dt><dd><f:translate key="LLL:EXT:ffpi_firmware_list/Resources/Private/Language/router_names.xlf:{router.router.router}"><firmware:routerNameFallback unifiedRouterIdentifier="{router.router.router}" /></f:translate></dd>
+                                    <f:if condition="{router.router.routerVersion}"><dt><f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.hardware_version" />:</dt><dd>{router.router.routerVersion}</dd></f:if>
+                                    <dt><f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.firmware_version" />:</dt><dd>{firmware.factory.firmwareParts.firmwareVersion}</dd>
+                                    <dt><f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.filename" />:</dt><dd>{firmware.factory.file.name}</dd>
+                                    <dt><f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.filesize" />:</dt><dd>{firmware.factory.file.size -> f:format.bytes(decimals: 2, decimalSeparator: '.')}</dd>
+                                    <dt><f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.md5" />:</dt><dd>{firmware.factory.file.md5}</dd>
+                                    <dt><f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.crdate" />:</dt><dd>{firmware.factory.file.creation_date -> f:format.date(format: 'd.m.Y')}</dd>
+                                </dl>
+                            </div>
                         </f:if>
                         <f:if condition="{i.isLast}">
                             <f:else><br/></f:else>
@@ -31,7 +43,20 @@
                 <td>
                     <f:for each="{router.firmware}" as="firmware" iteration="i">
                         <f:if condition="{firmware.sysupgrade}">
-                            <a href="{firmware.sysupgrade.file.publicUrl}">{firmware.sysupgrade.firmwareParts.firmwareVersion}</a>
+                            <a href="{firmware.sysupgrade.file.publicUrl}" download>{firmware.sysupgrade.firmwareParts.firmwareVersion}</a>
+                            <span class="download-info-button">ⓘ</span>
+                            <div class="download-info-button__overlay">
+                                <h4>Infos zum Download</h4>
+                                <dl>
+                                    <dt><f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.router" />:</dt><dd><f:translate key="LLL:EXT:ffpi_firmware_list/Resources/Private/Language/router_names.xlf:{router.router.router}"><firmware:routerNameFallback unifiedRouterIdentifier="{router.router.router}" /></f:translate></dd>
+                                    <f:if condition="{router.router.routerVersion}"><dt><f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.hardware_version" />:</dt><dd>{router.router.routerVersion}</dd></f:if>
+                                    <dt><f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.firmware_version" />:</dt><dd>{firmware.sysupgrade.firmwareParts.firmwareVersion}</dd>
+                                    <dt><f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.filename" />:</dt><dd>{firmware.sysupgrade.file.name}</dd>
+                                    <dt><f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.filesize" />:</dt><dd>{firmware.sysupgrade.file.size -> f:format.bytes(decimals: 2, decimalSeparator: '.')}</dd>
+                                    <dt><f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.md5" />:</dt><dd>{firmware.sysupgrade.file.md5}</dd>
+                                    <dt><f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.crdate" />:</dt><dd>{firmware.sysupgrade.file.creation_date -> f:format.date(format: 'd.m.Y')}</dd>
+                                </dl>
+                            </div>
                         </f:if>
                         <f:if condition="{i.isLast}">
                             <f:else><br/></f:else>

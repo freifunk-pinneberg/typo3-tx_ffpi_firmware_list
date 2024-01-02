@@ -23,6 +23,7 @@ class FilenameUtility
             'sysupgrade' => ($filenameParts[7] == 'sysupgrade'),
             'beta' => ($filenameParts[6] == 'beta'),
             'experimental' => ($filenameParts[6] == 'exp' || $filenameParts[6] == 'experimental'),
+            'stable' => (empty($filenameParts[6])),
             'fileType' => $filenameParts[8],
         ];
         return $firmwareParts;
