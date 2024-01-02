@@ -9,8 +9,23 @@
       "role": "Developer"
     }
   ],
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+        "name": "freifunk/device-pictures",
+        "version": "master",
+        "source": {
+          "url": "https://github.com/freifunk/device-pictures.git",
+          "type": "git",
+          "reference": "master"
+        }
+      }
+    }
+  ],
   "require": {
-    "typo3/cms-core": "10.0.0 - 10.4.99"
+    "typo3/cms-core": "10.0.0 - 10.4.99",
+    "freifunk/device-pictures": "master"
   },
   "autoload": {
     "psr-4": {
@@ -24,6 +39,9 @@
   "extra": {
     "typo3/cms": {
       "extension-key": "ffpi_firmware_list"
+    },
+    "installer-paths": {
+      "freifunk/device-pictures": "{$web-dir}/typo3conf/ext/ffpi_firmware_list/Resources/Public/device-pictures"
     }
   }
 }
