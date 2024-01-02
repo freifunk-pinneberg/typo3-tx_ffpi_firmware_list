@@ -67,6 +67,21 @@ class FirmwareListController extends ActionController
                 }
                 $firmwareList[$unifiedRouterIdentifier]['router']['router'] = $firmwareParts['router'];
                 $firmwareList[$unifiedRouterIdentifier]['router']['routerVersion'] = $firmwareParts['routerVersion'];
+
+                $paths = [
+                    'EXT:ffpi_firmware_list/Resources/Public/DevicePictures/' . $firmwareParts['router'] . '-' . $firmwareParts['routerVersion'] . '.svg',
+                    'EXT:ffpi_firmware_list/Resources/Public/DevicePictures/' . $firmwareParts['router'] . '-' . str_replace('.', '-', $firmwareParts['routerVersion']) . '.svg',
+                    'EXT:ffpi_firmware_list/Resources/Public/DevicePictures/' . $firmwareParts['router'] . '.svg',
+                    'EXT:ffpi_firmware_list/Resources/Public/DevicePictures/' . $unifiedRouterIdentifier . '.svg',
+                ];
+
+                foreach ($paths as $t3IconPath) {
+                    $iconPath = GeneralUtility::getFileAbsFileName($t3IconPath);
+                    if (!empty($iconPath) && file_exists($iconPath)) {
+                        $firmwareList[$unifiedRouterIdentifier]['router']['icon'] = $t3IconPath;
+                        break; // Stoppt die Schleife, wenn eine Datei gefunden wurde
+                    }
+                }
             }
 
             ksort($firmwareList, SORT_NATURAL);

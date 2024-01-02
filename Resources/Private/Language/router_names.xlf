@@ -6,11 +6,44 @@
 			<trans-unit id="8devices-carambola2-board">
 				<source>8devices Carambola 2</source>
 			</trans-unit>
+			<trans-unit id="aerohive-hiveap-121">
+				<source>Aerohive HiveAP 121</source>
+			</trans-unit>
+			<trans-unit id="aerohive-hiveap-330">
+				<source>Aerohive HiveAP 330</source>
+			</trans-unit>
+			<trans-unit id="alfa-network-ap121">
+				<source>ALFA Network AP121</source>
+			</trans-unit>
+			<trans-unit id="alfa-network-ap121f">
+				<source>ALFA Network AP121F</source>
+			</trans-unit>
 			<trans-unit id="alfa-network-ap121">
 				<source>ALFA Network AP121</source>
 			</trans-unit>
 			<trans-unit id="alfa-network-ap121u">
 				<source>ALFA Network AP121U</source>
+			</trans-unit>
+			<trans-unit id="alfa-network-hornet-ub">
+				<source>ALFA Network Hornet-UB</source>
+			</trans-unit>
+			<trans-unit id="avm-fritz-box-4020">
+				<source>AVM Fritz!Box 4020</source>
+			</trans-unit>
+			<trans-unit id="avm-fritz-wlan-repeater-300e">
+				<source>AVM FRITZ!WLAN Repeater 300E</source>
+			</trans-unit>
+			<trans-unit id="avm-fritz-wlan-repeater-450e">
+				<source>AVM FRITZ!WLAN Repeater 450E</source>
+			</trans-unit>
+			<trans-unit id="raspberry-pi-5">
+				<source>Raspberry Pi 5</source>
+			</trans-unit>
+			<trans-unit id="raspberry-pi-4">
+				<source>Raspberry Pi 4</source>
+			</trans-unit>
+			<trans-unit id="raspberry-pi-3">
+				<source>Raspberry Pi 3</source>
 			</trans-unit>
 			<trans-unit id="raspberry-pi-2">
 				<source>Raspberry Pi 2</source>
@@ -35,6 +68,15 @@
 			</trans-unit>
 			<trans-unit id="tp-link-cpe520">
 				<source>TP-Link CPE520</source>
+			</trans-unit>
+			<trans-unit id="tp-link-tl-mr3020">
+				<source>TP-Link TL-MR3020</source>
+			</trans-unit>
+			<trans-unit id="tp-link-tl-mr3040">
+				<source>TP-Link TL-MR3040</source>
+			</trans-unit>
+			<trans-unit id="tp-link-tl-mr3220">
+				<source>TP-Link TL-MR3220</source>
 			</trans-unit>
 			<trans-unit id="tp-link-re450">
 				<source>TP-Link RE450</source>
@@ -87,6 +129,9 @@
 			<trans-unit id="ubiquiti-airgateway">
 				<source>Ubiquiti airGateway</source>
 			</trans-unit>
+			<trans-unit id="ubiquiti-airgateway-pro">
+				<source>Ubiquiti airGateway PRO</source>
+			</trans-unit>
 			<trans-unit id="ubiquiti-airgateway-lr">
 				<source>Ubiquiti airGateway-LR</source>
 			</trans-unit>
@@ -116,6 +161,9 @@
 			</trans-unit>
 			<trans-unit id="ubiquiti-rocket-m5-ti">
 				<source>Ubiquiti Rocket M5 Titanium</source>
+			</trans-unit>
+			<trans-unit id="ubiquiti-loco-m">
+				<source>Ubiquiti Loco M</source>
 			</trans-unit>
 			<trans-unit id="ubiquiti-nanostation-loco-m">
 				<source>Ubiquiti Nanostation Loco M</source>

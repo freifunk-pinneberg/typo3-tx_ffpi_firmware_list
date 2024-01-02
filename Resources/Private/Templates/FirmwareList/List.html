@@ -6,7 +6,7 @@
     <table class="contenttable firmware-list">
         <thead>
         <tr>
-            <th scope="col"><f:translate key="header.router" /></th>
+            <th scope="col" colspan="2"><f:translate key="header.router" /></th>
             <th scope="col"><f:translate key="header.hw_version" /></th>
             <th scope="col"><f:translate key="header.factory" /></th>
             <th scope="col"><f:translate key="header.sysupgrade" /></th>
@@ -15,6 +15,11 @@
         <f:for each="{firmwareList}" as="router" key="unifiedRouterIdentifier">
 
             <tr id="{unifiedRouterIdentifier}">
+                <td>
+                    <f:if condition="{router.router.icon}">
+                        <f:image class="router-image" src="{router.router.icon}" width="150" />
+                    </f:if>
+                </td>
                 <td><f:translate key="LLL:EXT:ffpi_firmware_list/Resources/Private/Language/router_names.xlf:{router.router.router}"><firmware:routerNameFallback unifiedRouterIdentifier="{router.router.router}" /></f:translate></td>
                 <td>{router.router.routerVersion}</td>
                 <td>
@@ -23,7 +28,7 @@
                             <a href="{firmware.factory.file.publicUrl}" download>{firmware.factory.firmwareParts.firmwareVersion}</a>
                             <span class="download-info-button">ⓘ</span>
                             <div class="download-info-button__overlay">
-                                <h4>Infos zum Download</h4>
+                                <h4><f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.header" /></h4>
                                 <dl>
                                     <dt><f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.router" />:</dt><dd><f:translate key="LLL:EXT:ffpi_firmware_list/Resources/Private/Language/router_names.xlf:{router.router.router}"><firmware:routerNameFallback unifiedRouterIdentifier="{router.router.router}" /></f:translate></dd>
                                     <f:if condition="{router.router.routerVersion}"><dt><f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.hardware_version" />:</dt><dd>{router.router.routerVersion}</dd></f:if>
@@ -46,7 +51,7 @@
                             <a href="{firmware.sysupgrade.file.publicUrl}" download>{firmware.sysupgrade.firmwareParts.firmwareVersion}</a>
                             <span class="download-info-button">ⓘ</span>
                             <div class="download-info-button__overlay">
-                                <h4>Infos zum Download</h4>
+                                <h4><f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.header" /></h4>
                                 <dl>
                                     <dt><f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.router" />:</dt><dd><f:translate key="LLL:EXT:ffpi_firmware_list/Resources/Private/Language/router_names.xlf:{router.router.router}"><firmware:routerNameFallback unifiedRouterIdentifier="{router.router.router}" /></f:translate></dd>
                                     <f:if condition="{router.router.routerVersion}"><dt><f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.hardware_version" />:</dt><dd>{router.router.routerVersion}</dd></f:if>

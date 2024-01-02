@@ -22,6 +22,32 @@
 				<target>Opdatering</target>
 			</trans-unit>
 
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.header">
+				<source>Download informations</source>
+				<target>Downloadoplysninger</target>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.router">
+				<target>Router</target>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.hardware_version">
+				<target>Hardwarevariant</target>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.firmware_version">
+				<target>Freifunk Firmware</target>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.filename">
+				<target>Filnavn</target>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.filesize">
+				<target>Filstørrelse</target>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.md5">
+				<target>MD5 checksum</target>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.crdate">
+				<target>Oprettet</target>
+			</trans-unit>
+
 		</body>
 	</file>
 </xliff>
