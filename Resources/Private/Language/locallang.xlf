@@ -47,6 +47,27 @@
 				<source>Created</source>
 			</trans-unit>
 
+			<trans-unit id="tx_ffpifirmwarelist_domain_model_firmwareversiondetail">
+				<source>Firmware Details</source>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_domain_model_firmwareversiondetail.version">
+				<source>Firmware Version</source>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_domain_model_firmwareversiondetail.gluon_release">
+				<source>Gluon Release</source>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_domain_model_firmwareversiondetail.openwrt_release">
+				<source>OpenWRT Release</source>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_domain_model_firmwareversiondetail.has_security_issues">
+				<source>Hat sicherheitslücken</source>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_domain_model_firmwareversiondetail.additional_notes">
+				<source>Weitere Hinweise (freitext)</source>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_domain_model_firmwareversiondetail.git">
+				<source>Build Sourcecode (git)</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
