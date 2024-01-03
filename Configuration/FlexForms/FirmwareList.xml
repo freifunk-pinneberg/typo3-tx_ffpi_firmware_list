@@ -13,11 +13,13 @@
                     <settings.folder>
                         <label>Storage and Folder</label>
                         <config>
-                            <type>input</type>
-                            <size>20</size>
-                            <max>255</max>
-                            <eval>trim</eval>
-                            <default>1:/downloads/</default>
+                            <type>group</type>
+                            <internal_type>folder</internal_type>
+                            <allowed></allowed> <!-- Leer für Ordner -->
+                            <size>5</size>
+                            <maxitems>9999</maxitems>
+                            <multiple>1</multiple>
+                            <show_thumbs>1</show_thumbs>
                         </config>
                     </settings.folder>
                     <settings.blacklistet_path_segments>

@@ -26,8 +26,7 @@ class FirmwareListController extends ActionController
 
     protected function initializeAction(): void
     {
-        $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
-        $this->folder = $resourceFactory->getFolderObjectFromCombinedIdentifier($this->settings['folder']);
+        $this->folder = explode(',',$this->settings['folder']);
         $this->blacklistedPathSegments = array_map('trim', explode(',', $this->settings['blacklistet_path_segments']));
     }
 
@@ -37,14 +36,18 @@ class FirmwareListController extends ActionController
         $assetCollector->addStyleSheet('FirmwareList', 'EXT:ffpi_firmware_list/Resources/Public/Css/FirmwareList.css');
 
         $cacheManager = GeneralUtility::makeInstance(CacheManager::class);
-        $cacheKey = 'ffpi_firmware_list_cache_' . $this->folder->getCombinedIdentifier();
-        $cacheKey = str_replace([':', '/', '\\', ' '], '_', $cacheKey);
+        $cacheKey = 'ffpi_firmware_list_cache_' . $this->configurationManager->getContentObject()->data['uid'];;
         $cache = $cacheManager->getCache('ffpi_firmware_list_cache');
 
+        $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
         if ($cache->has($cacheKey)) {
             $firmwareList = $cache->get($cacheKey);
         } else {
-            $files = $this->folder->getFiles(0, 0, Folder::FILTER_MODE_USE_OWN_AND_STORAGE_FILTERS, true, 'name');
+            $files = [];
+            foreach ($this->folder as $folder){
+                $folder = $resourceFactory->getFolderObjectFromCombinedIdentifier($folder);
+                $files = array_merge($files, $folder->getFiles(0, 0, Folder::FILTER_MODE_USE_OWN_AND_STORAGE_FILTERS, true, 'name'));
+            }
             $firmwareList = [];
 
             foreach ($files as $file) {
