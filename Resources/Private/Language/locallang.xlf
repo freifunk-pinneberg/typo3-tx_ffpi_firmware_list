@@ -46,6 +46,15 @@
 			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.crdate">
 				<source>Created</source>
 			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.gluon_release">
+				<source>Gluon Release</source>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.openwrt_release">
+				<source>OpenWRT Release</source>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.git">
+				<source>Build Sourcecode</source>
+			</trans-unit>
 
 			<trans-unit id="tx_ffpifirmwarelist_domain_model_firmwareversiondetail">
 				<source>Firmware Details</source>

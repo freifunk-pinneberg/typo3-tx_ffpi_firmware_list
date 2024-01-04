@@ -1,0 +1,64 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:firmware="http://typo3.org/ns/FFPI/FfpiFirmwareList/ViewHelper"
+      data-namespace-typo3-fluid="true">
+<span class="download-info-button">ⓘ</span>
+<div class="download-info-button__overlay">
+    <h4>
+        <f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.header"/>
+    </h4>
+    <dl>
+        <dt>
+            <f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.router"/>:
+        </dt>
+        <dd>
+            <f:translate
+                key="LLL:EXT:ffpi_firmware_list/Resources/Private/Language/router_names.xlf:{router.router.router}">
+                <firmware:routerNameFallback unifiedRouterIdentifier="{router.router.router}"/>
+            </f:translate>
+        </dd>
+        <f:if condition="{router.router.routerVersion}">
+            <dt>
+                <f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.hardware_version"/>:
+            </dt>
+            <dd>{router.router.routerVersion}</dd>
+        </f:if>
+        <dt>
+            <f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.firmware_version"/>:
+        </dt>
+        <dd>{firmware.firmwareParts.firmwareVersion}</dd>
+        <dt>
+            <f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.filename"/>:
+        </dt>
+        <dd>{firmware.file.name}</dd>
+        <dt>
+            <f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.filesize"/>:
+        </dt>
+        <dd>{firmware.file.size -> f:format.bytes(decimals: 2, decimalSeparator: '.')}</dd>
+        <dt>
+            <f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.md5"/>:
+        </dt>
+        <dd>{firmware.file.md5}</dd>
+        <dt>
+            <f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.crdate"/>:
+        </dt>
+        <dd>{firmware.file.creation_date -> f:format.date(format: 'd.m.Y')}</dd>
+        <dt>
+            <f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.gluon_release"/>:
+        </dt>
+        <dd>{firmware.file.firmwareDetails.gluonRelease}</dd>
+        <f:if condition="{firmware.file.firmwareDetails.git}">
+            <dt>
+                <f:translate key="tx_ffpifirmwarelist_firmwarelist.overlay.git"/>:
+            </dt>
+            <dd>
+                <f:link.typolink parameter="{firmware.file.firmwareDetails.git}" target="_blank" title="{f:uri.typolink(parameter: firmware.file.firmwareDetails.git)}">
+                    <f:format.crop maxCharacters="47"><f:uri.typolink parameter="{firmware.file.firmwareDetails.git}" /></f:format.crop>
+                </f:link.typolink>
+            </dd>
+        </f:if>
+    </dl>
+    <f:if condition="{firmware.file.firmwareDetails.additionalNotes}">
+        <p><f:format.nl2br>{firmware.file.firmwareDetails.additionalNotes}</f:format.nl2br></p>
+    </f:if>
+</div>
+</html>

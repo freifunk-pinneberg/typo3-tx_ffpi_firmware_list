@@ -2,6 +2,7 @@
 
 namespace FFPI\FfpiFirmwareList\Controller;
 
+use FFPI\FfpiFirmwareList\Domain\Repository\FirmwareVersionDetailRepository;
 use FFPI\FfpiFirmwareList\Utility\FilenameUtility;
 use TYPO3\CMS\Core\Cache\CacheManager;
 use TYPO3\CMS\Core\Page\AssetCollector;
@@ -24,9 +25,17 @@ class FirmwareListController extends ActionController
     /** @var array $blacklistedPathSegments */
     protected $blacklistedPathSegments = [];
 
+    /** @var FirmwareVersionDetailRepository */
+    protected $firmwareVersionDetailRepository;
+
+    public function injectFirmwareVersionDetailRepository(FirmwareVersionDetailRepository $firmwareVersionDetailRepository): void
+    {
+        $this->firmwareVersionDetailRepository = $firmwareVersionDetailRepository;
+    }
+
     protected function initializeAction(): void
     {
-        $this->folder = explode(',',$this->settings['folder']);
+        $this->folder = explode(',', $this->settings['folder']);
         $this->blacklistedPathSegments = array_map('trim', explode(',', $this->settings['blacklistet_path_segments']));
     }
 
@@ -44,7 +53,7 @@ class FirmwareListController extends ActionController
             $firmwareList = $cache->get($cacheKey);
         } else {
             $files = [];
-            foreach ($this->folder as $folder){
+            foreach ($this->folder as $folder) {
                 $folder = $resourceFactory->getFolderObjectFromCombinedIdentifier($folder);
                 $files = array_merge($files, $folder->getFiles(0, 0, Folder::FILTER_MODE_USE_OWN_AND_STORAGE_FILTERS, true, 'name'));
             }
@@ -62,11 +71,13 @@ class FirmwareListController extends ActionController
                     $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['sysupgrade']['file'] = $file->toArray();
                     $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['sysupgrade']['file']['publicUrl'] = $file->getPublicUrl();
                     $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['sysupgrade']['file']['md5'] = $file->getStorage()->hashFile($file, 'md5');
+                    $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['sysupgrade']['file']['firmwareDetails'] = $this->firmwareVersionDetailRepository->findOneByVersion($firmwareParts['firmwareVersion']);
                 } else {
                     $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['factory']['firmwareParts'] = $firmwareParts;
                     $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['factory']['file'] = $file->toArray();
                     $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['factory']['file']['publicUrl'] = $file->getPublicUrl();
                     $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['factory']['file']['md5'] = $file->getStorage()->hashFile($file, 'md5');
+                    $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['factory']['file']['firmwareDetails'] = $this->firmwareVersionDetailRepository->findOneByVersion($firmwareParts['firmwareVersion']);
                 }
                 $firmwareList[$unifiedRouterIdentifier]['router']['router'] = $firmwareParts['router'];
                 $firmwareList[$unifiedRouterIdentifier]['router']['routerVersion'] = $firmwareParts['routerVersion'];
