@@ -99,9 +99,58 @@ class FirmwareListController extends ActionController
             }
 
             ksort($firmwareList, SORT_NATURAL);
+            foreach ($firmwareList as $router => &$versions) {
+                uksort($versions['firmware'], 'self::customVersionCompare');
+            }
+            unset($versions);
+
+            //Mark best download
+            foreach ($firmwareList as $router => &$versions) {
+                foreach ($versions['firmware'] as $version => &$firmwareTypes) {
+                    foreach (['factory', 'sysupgrade'] as $type) {
+                        if (isset($firmwareTypes[$type]['firmwareParts']['stable']) && $firmwareTypes[$type]['firmwareParts']['stable']) {
+                            // Setzen Sie "recommended" auf true, wenn "stable" true ist
+                            $firmwareTypes[$type]['firmwareParts']['recommended'] = true;
+                            break; // Beenden Sie die innere Schleife, wenn "recommended" gesetzt ist
+                        }
+                    }
+                }
+            }
+            unset($firmwareTypes); // Referenz aufheben
+            unset($versions); // Referenz aufheben
+
             $cache->set($cacheKey, $firmwareList, [], 604800); // 604800 sekunden = 1 woche
         }
         $this->view->assign('settings', $this->settings);
         $this->view->assign('firmwareList', $firmwareList);
+    }
+
+    /**
+     * @param string $a
+     * @param string $b
+     * @return int
+     */
+    protected static function customVersionCompare(string $a, string $b)
+    {
+        // Zuerst die Hauptversionen und Suffixe trennen
+        $regex = '/^(.*?)(-exp|-beta)?([0-9]+)?$/';
+        preg_match($regex, $a, $matchesA);
+        preg_match($regex, $b, $matchesB);
+
+        // Hauptversionsvergleich
+        $versionCompareResult = version_compare($matchesA[1], $matchesB[1]);
+        if ($versionCompareResult != 0) {
+            return $versionCompareResult;
+        }
+
+        // Vergleich der Suffixe
+        if ($matchesA[2] != $matchesB[2]) {
+            // Hier wird eine einfache Reihenfolge definiert: exp < beta < stable
+            $order = ['' => 2, '-beta' => 1, '-exp' => 0];
+            return ($order[$matchesA[2]] <=> $order[$matchesB[2]]) * -1;
+        }
+
+        // Vergleich der Suffix-Nummern, falls vorhanden
+        return ($matchesA[3] <=> $matchesB[3]) * -1; // Für absteigende Sortierung
     }
 }

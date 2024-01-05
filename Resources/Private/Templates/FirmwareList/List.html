@@ -25,7 +25,10 @@
                 <td>
                     <f:for each="{router.firmware}" as="firmware" iteration="i">
                         <f:if condition="{firmware.factory}">
-                            <a href="{firmware.factory.file.publicUrl}" download>{firmware.factory.firmwareParts.firmwareVersion}</a>
+                            <f:if condition="{firmware.factory.firmwareParts.recommended}">
+                                <f:then><strong><a href="{firmware.factory.file.publicUrl}" download>{firmware.factory.firmwareParts.firmwareVersion}</a></strong></f:then>
+                                <f:else><a href="{firmware.factory.file.publicUrl}" download>{firmware.factory.firmwareParts.firmwareVersion}</a></f:else>
+                            </f:if>
                             <f:render partial="DownloadInfoOverlay" arguments="{firmware: firmware.factory, router: router}" />
                         </f:if>
                         <f:if condition="{i.isLast}">
@@ -36,7 +39,10 @@
                 <td>
                     <f:for each="{router.firmware}" as="firmware" iteration="i">
                         <f:if condition="{firmware.sysupgrade}">
-                            <a href="{firmware.sysupgrade.file.publicUrl}" download>{firmware.sysupgrade.firmwareParts.firmwareVersion}</a>
+                            <f:if condition="{firmware.sysupgrade.firmwareParts.recommended}">
+                                <f:then><strong><a href="{firmware.sysupgrade.file.publicUrl}" download>{firmware.sysupgrade.firmwareParts.firmwareVersion}</a></strong></f:then>
+                                <f:else><a href="{firmware.sysupgrade.file.publicUrl}" download>{firmware.sysupgrade.firmwareParts.firmwareVersion}</a></f:else>
+                            </f:if>
                             <f:render partial="DownloadInfoOverlay" arguments="{firmware: firmware.sysupgrade, router: router}" />
                         </f:if>
                         <f:if condition="{i.isLast}">

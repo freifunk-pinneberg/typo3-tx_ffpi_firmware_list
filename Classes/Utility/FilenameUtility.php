@@ -21,9 +21,9 @@ class FilenameUtility
             'router' => $filenameParts[5],
             'routerVersion' => $filenameParts[6],
             'sysupgrade' => ($filenameParts[7] == 'sysupgrade'),
-            'beta' => ($filenameParts[6] == 'beta'),
-            'experimental' => ($filenameParts[6] == 'exp' || $filenameParts[6] == 'experimental'),
-            'stable' => (empty($filenameParts[6])),
+            'beta' => ($filenameParts[4] == 'beta'),
+            'experimental' => ($filenameParts[4] == 'exp' || $filenameParts[4] == 'experimental'),
+            'stable' => (empty($filenameParts[4])),
             'fileType' => $filenameParts[8],
         ];
         return $firmwareParts;
