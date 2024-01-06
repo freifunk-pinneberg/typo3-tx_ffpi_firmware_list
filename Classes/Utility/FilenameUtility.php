@@ -17,6 +17,7 @@ class FilenameUtility
         $firmwareParts = [
             'firmwareVersion' => $filenameParts[1],
             'firmwareVersionNumber' => $filenameParts[2],
+            'sortableFirmwareVersionNumber' => self::convertVersionNumber($filenameParts[1]),
             'firmwareVersionAddition' => $filenameParts[3],
             'router' => $filenameParts[5],
             'routerVersion' => $filenameParts[6],
@@ -52,5 +53,42 @@ class FilenameUtility
             }
         }
         return false;
+    }
+
+    /**
+     * @param string $oldFormat
+     * @return string
+     */
+    public static function convertVersionNumber(string $oldFormat): string
+    {
+        // Ersetzen von '+' mit '-' für konsistente Behandlung von Suffixen
+        $version = str_replace('+', '-', $oldFormat);
+
+        // Aufspalten in Hauptversion und Suffix
+        $parts = explode('-', $version);
+        $numbers = explode('.', $parts[0]);
+
+        // Ergänzen der Hauptversionsnummern auf 3 Stellen
+        while (count($numbers) < 3) {
+            $numbers[] = '0';
+        }
+
+        // Hinzufügen der Suffix-Daten
+        if (isset($parts[1])) {
+            $suffix = preg_replace('/[^a-zA-Z]/', '', $parts[1]);
+            $suffixNumber = preg_replace('/[^0-9]/', '', $parts[1]) ?: '0';
+
+            // Bestimmen der Suffix-Priorität
+            $order = ['exp' => '0', 'beta' => '1'];
+            $numbers[] = $order[$suffix] ?? '2'; // Standardwert ist 2 für unbekannten suffix
+            $numbers[] = $suffixNumber;
+        } else {
+            // Fügt '3.0' für stabile Versionen ohne Suffix hinzu
+            $numbers[] = '3';
+            $numbers[] = '0';
+        }
+
+        return implode('.', $numbers);
+
     }
 }

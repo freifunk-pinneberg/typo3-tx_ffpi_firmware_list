@@ -19,7 +19,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  */
 class FirmwareListController extends ActionController
 {
-    /** @var Folder $folder */
+    /** @var array<string> $folder */
     protected $folder;
 
     /** @var array $blacklistedPathSegments */
@@ -96,61 +96,63 @@ class FirmwareListController extends ActionController
                         break; // Stoppt die Schleife, wenn eine Datei gefunden wurde
                     }
                 }
+                if (!isset($firmwareList[$unifiedRouterIdentifier]['router']['icon'])) {
+                    trigger_error('Router image for ' . $unifiedRouterIdentifier . ' or ' . $firmwareParts['router'] . ' not found!', E_USER_WARNING);
+                }
             }
 
             ksort($firmwareList, SORT_NATURAL);
-            foreach ($firmwareList as $router => &$versions) {
-                uksort($versions['firmware'], 'self::customVersionCompare');
+            //foreach ($firmwareList as $router => &$versions) {
+            //    uksort($versions['firmware'], 'self::customVersionCompare');
+            //}
+            //unset($versions);
+
+            foreach ($firmwareList as $router => &$routerData) {
+                // Sortierung der Firmware-Versionen
+                uksort($routerData['firmware'], function ($a, $b) use ($routerData) {
+                    // Extrahieren der sortierbaren Versionsnummern für jede Firmware-Version
+                    // Es wird geprüft, ob ein Eintrag für 'sysupgrade' und dann 'factory' existiert
+                    $aVersionNumber = '';
+                    $bVersionNumber = '';
+
+                    if (isset($routerData['firmware'][$a]['sysupgrade']['firmwareParts']['sortableFirmwareVersionNumber'])) {
+                        $aVersionNumber = $routerData['firmware'][$a]['sysupgrade']['firmwareParts']['sortableFirmwareVersionNumber'];
+                    } elseif (isset($routerData['firmware'][$a]['factory']['firmwareParts']['sortableFirmwareVersionNumber'])) {
+                        $aVersionNumber = $routerData['firmware'][$a]['factory']['firmwareParts']['sortableFirmwareVersionNumber'];
+                    }
+
+                    if (isset($routerData['firmware'][$b]['sysupgrade']['firmwareParts']['sortableFirmwareVersionNumber'])) {
+                        $bVersionNumber = $routerData['firmware'][$b]['sysupgrade']['firmwareParts']['sortableFirmwareVersionNumber'];
+                    } elseif (isset($routerData['firmware'][$b]['factory']['firmwareParts']['sortableFirmwareVersionNumber'])) {
+                        $bVersionNumber = $routerData['firmware'][$b]['factory']['firmwareParts']['sortableFirmwareVersionNumber'];
+                    }
+
+                    // Vergleich der sortierbaren Versionsnummern
+                    return version_compare($bVersionNumber, $aVersionNumber);
+                });
             }
-            unset($versions);
+            unset($routerData); // Referenz aufheben
+
 
             //Mark best download
-            foreach ($firmwareList as $router => &$versions) {
-                foreach ($versions['firmware'] as $version => &$firmwareTypes) {
-                    foreach (['factory', 'sysupgrade'] as $type) {
-                        if (isset($firmwareTypes[$type]['firmwareParts']['stable']) && $firmwareTypes[$type]['firmwareParts']['stable']) {
-                            // Setzen Sie "recommended" auf true, wenn "stable" true ist
-                            $firmwareTypes[$type]['firmwareParts']['recommended'] = true;
-                            break; // Beenden Sie die innere Schleife, wenn "recommended" gesetzt ist
+            foreach ($firmwareList as $routerKey => $router) {
+                $goToNextDevice = false;
+                foreach ($router['firmware'] as $firmwareKey => $firmware) {
+                    foreach ($firmware as $variantKey => $variant) {
+                        if ($variant['firmwareParts']['stable'] === true) {
+                            $firmwareList[$routerKey]['firmware'][$firmwareKey][$variantKey]['firmwareParts']['recommended'] = true;
+                            $goToNextDevice = true;
                         }
+                    }
+                    if ($goToNextDevice) {
+                        break;
                     }
                 }
             }
-            unset($firmwareTypes); // Referenz aufheben
-            unset($versions); // Referenz aufheben
 
             $cache->set($cacheKey, $firmwareList, [], 604800); // 604800 sekunden = 1 woche
         }
         $this->view->assign('settings', $this->settings);
         $this->view->assign('firmwareList', $firmwareList);
-    }
-
-    /**
-     * @param string $a
-     * @param string $b
-     * @return int
-     */
-    protected static function customVersionCompare(string $a, string $b)
-    {
-        // Zuerst die Hauptversionen und Suffixe trennen
-        $regex = '/^(.*?)(-exp|-beta)?([0-9]+)?$/';
-        preg_match($regex, $a, $matchesA);
-        preg_match($regex, $b, $matchesB);
-
-        // Hauptversionsvergleich
-        $versionCompareResult = version_compare($matchesA[1], $matchesB[1]);
-        if ($versionCompareResult != 0) {
-            return $versionCompareResult;
-        }
-
-        // Vergleich der Suffixe
-        if ($matchesA[2] != $matchesB[2]) {
-            // Hier wird eine einfache Reihenfolge definiert: exp < beta < stable
-            $order = ['' => 2, '-beta' => 1, '-exp' => 0];
-            return ($order[$matchesA[2]] <=> $order[$matchesB[2]]) * -1;
-        }
-
-        // Vergleich der Suffix-Nummern, falls vorhanden
-        return ($matchesA[3] <=> $matchesB[3]) * -1; // Für absteigende Sortierung
     }
 }
