@@ -84,6 +84,9 @@
 			<trans-unit id="tp-link-tl-wr841n-nd">
 				<source>TP-Link TL-WR841N(D)</source>
 			</trans-unit>
+			<trans-unit id="tp-link-tl-wr841n">
+				<source>TP-Link TL-WR841N</source>
+			</trans-unit>
 			<trans-unit id="tp-link-tl-wr842n-nd">
 				<source>TP-Link TL-WR842N(D)</source>
 			</trans-unit>

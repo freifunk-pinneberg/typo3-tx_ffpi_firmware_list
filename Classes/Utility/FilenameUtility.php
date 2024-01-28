@@ -11,10 +11,11 @@ class FilenameUtility
      */
     public static function getFirmwareParts(string $filename): array
     {
-        $regex = '/^gluon-ffpi-((\d+\.\d+\.?\d*)*-?((beta|exp|experimental)\d*)?)-(.*?)-?(v\d\.?\d*|rev-\w?\d+|xm|xw)?-?(sysupgrade)?(\..{2,7})$/';
+        $regex = '/^gluon-ffpi-((\d+\.\d+\.?\d*)*-?((beta|exp|experimental)\d*)?)-(.*?)-?(v\d\.?\d*|rev-\w?\d+|xm|xw)?-?(sysupgrade|bootloader)?(\..{2,7})$/';
         preg_match($regex, $filename, $filenameParts);
 
         $firmwareParts = [
+            'fullName' => $filename,
             'firmwareVersion' => $filenameParts[1],
             'firmwareVersionNumber' => $filenameParts[2],
             'sortableFirmwareVersionNumber' => self::convertVersionNumber($filenameParts[1]),
@@ -22,7 +23,10 @@ class FilenameUtility
             'router' => $filenameParts[5],
             'routerVersion' => $filenameParts[6],
             'sysupgrade' => ($filenameParts[7] == 'sysupgrade'),
+            'factory' => ($filenameParts[7] == ''),
+            'other' => ($filenameParts[7] !== 'sysupgrade' && $filenameParts[7] !== ''),
             'beta' => ($filenameParts[4] == 'beta'),
+            'firmwareType' => empty($filenameParts[7]) ? 'factory' : $filenameParts[7],
             'experimental' => ($filenameParts[4] == 'exp' || $filenameParts[4] == 'experimental'),
             'stable' => (empty($filenameParts[4])),
             'fileType' => $filenameParts[8],

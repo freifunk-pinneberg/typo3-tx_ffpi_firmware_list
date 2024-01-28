@@ -21,6 +21,9 @@
 			<trans-unit id="header.sysupgrade">
 				<target>Opdatering</target>
 			</trans-unit>
+			<trans-unit id="header.other">
+				<target>Andet</target>
+			</trans-unit>
 
 			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.header">
 				<source>Download informations</source>

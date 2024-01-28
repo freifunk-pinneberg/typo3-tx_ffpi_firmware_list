@@ -21,6 +21,9 @@
 			<trans-unit id="header.sysupgrade">
 				<source>Update</source>
 			</trans-unit>
+			<trans-unit id="header.other">
+				<source>Other</source>
+			</trans-unit>
 
 			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.header">
 				<source>Download informations</source>

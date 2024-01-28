@@ -20,13 +20,17 @@ class RouterNameFallbackViewHelper extends AbstractViewHelper
         'openmesh' => 'OpenMesh',
         'avm-fritz' => 'AVM FRITZ!',
         'gl-inet' => 'GL.iNet',
+        'gl' => 'GL.iNet',
         'zyxel' => 'ZyXEL',
         'lemaker' => 'LeMaker',
         'wd' => 'Western Digital',
         '8devices' => '8devices',
         'onion' => 'Onion',
         'aerohive' => 'Aerohive',
-        'ocedo' => 'Ocedo'
+        'ocedo' => 'Ocedo',
+        'nexx' => 'Nexx',
+        'vocore' => 'VoCore',
+        'zbt' => 'ZBT'
     ];
 
     public function initializeArguments()
