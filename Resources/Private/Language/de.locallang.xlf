@@ -22,7 +22,7 @@
 				<target>Update</target>
 			</trans-unit>
 			<trans-unit id="header.other">
-				<source>Sonstige</source>
+				<target>Sonstige</target>
 			</trans-unit>
 
 			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.header">

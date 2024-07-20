@@ -6,6 +6,18 @@
 			<trans-unit id="8devices-carambola2-board">
 				<source>8devices Carambola 2</source>
 			</trans-unit>
+			<trans-unit id="a5-v11">
+				<source>A5-V11 3G/4G Router</source>
+			</trans-unit>
+			<trans-unit id="allnet-all0315n">
+				<source>ALLNET ALL0315N</source>
+			</trans-unit>
+			<trans-unit id="aruba-ap-303">
+				<source>Aruba AP-303</source>
+			</trans-unit>
+			<trans-unit id="aruba-instant-on-ap11">
+				<source>Aruba Instant On AP11</source>
+			</trans-unit>
 			<trans-unit id="aerohive-hiveap-121">
 				<source>Aerohive HiveAP 121</source>
 			</trans-unit>
@@ -30,11 +42,44 @@
 			<trans-unit id="avm-fritz-box-4020">
 				<source>AVM Fritz!Box 4020</source>
 			</trans-unit>
+			<trans-unit id="avm-fritz-box-4040">
+				<source>AVM Fritz!Box 4040</source>
+			</trans-unit>
+			<trans-unit id="avm-fritz-box-7312">
+				<source>AVM Fritz!Box 7312</source>
+			</trans-unit>
+			<trans-unit id="avm-fritz-box-7360">
+				<source>AVM Fritz!Box 7360</source>
+			</trans-unit>
+			<trans-unit id="avm-fritz-box-7360-sl">
+				<source>AVM Fritz!Box 7360 SL</source>
+			</trans-unit>
 			<trans-unit id="avm-fritz-wlan-repeater-300e">
 				<source>AVM FRITZ!WLAN Repeater 300E</source>
 			</trans-unit>
 			<trans-unit id="avm-fritz-wlan-repeater-450e">
 				<source>AVM FRITZ!WLAN Repeater 450E</source>
+			</trans-unit>
+			<trans-unit id="devolo-wifi-pro-1200e">
+				<source>Devolo WiFi pro 1200e</source>
+			</trans-unit>
+			<trans-unit id="devolo-wifi-pro-1200i">
+				<source>Devolo WiFi pro 1200i</source>
+			</trans-unit>
+			<trans-unit id="devolo-wifi-pro-1750c">
+				<source>Devolo WiFi pro 1750c</source>
+			</trans-unit>
+			<trans-unit id="devolo-wifi-pro-1750e">
+				<source>Devolo WiFi pro 1750e</source>
+			</trans-unit>
+			<trans-unit id="devolo-wifi-pro-1750i">
+				<source>Devolo WiFi pro 1750i</source>
+			</trans-unit>
+			<trans-unit id="devolo-wifi-pro-1750x">
+				<source>Devolo WiFi pro 1750x</source>
+			</trans-unit>
+			<trans-unit id="engenius-ens620ext">
+				<source>EnGenius ENS620EXT</source>
 			</trans-unit>
 			<trans-unit id="raspberry-pi-5">
 				<source>Raspberry Pi 5</source>
@@ -48,15 +93,40 @@
 			<trans-unit id="raspberry-pi-2">
 				<source>Raspberry Pi 2</source>
 			</trans-unit>
+			<trans-unit id="raspberry-pi-2-mobel-b">
+				<source>Raspberry Pi 2B</source>
+			</trans-unit>
 			<trans-unit id="raspberry-pi">
 				<source>Raspberry Pi</source>
+			</trans-unit>
+			<trans-unit id="raspberry-pi-model-b">
+				<source>Raspberry Pi B</source>
+			</trans-unit>
+			<trans-unit id="tp-link-archer-c5">
+				<source>TP-Link Archer C2</source>
 			</trans-unit>
 			<trans-unit id="tp-link-archer-c5">
 				<source>TP-Link Archer C5</source>
 			</trans-unit>
+			<trans-unit id="tp-link-archer-c6">
+				<source>TP-Link Archer C6</source>
+			</trans-unit>
 			<trans-unit id="tp-link-archer-c7">
 				<source>TP-Link Archer C7</source>
 			</trans-unit>
+			<trans-unit id="tp-link-archer-c20">
+				<source>TP-Link Archer C20</source>
+			</trans-unit>
+			<trans-unit id="tp-link-archer-c50">
+				<source>TP-Link Archer C50</source>
+			</trans-unit>
+			<trans-unit id="tp-link-archer-c59">
+				<source>TP-Link Archer C59</source>
+			</trans-unit>
+			<trans-unit id="tp-link-archer-c60">
+				<source>TP-Link Archer C60</source>
+			</trans-unit>
+
 			<trans-unit id="tp-link-cpe210">
 				<source>TP-Link CPE210</source>
 			</trans-unit>
@@ -252,6 +322,13 @@
 			<trans-unit id="gl.inet-gl-ar750">
 				<source>GL.iNet GL-AR750</source>
 			</trans-unit>
+			<trans-unit id="xiaomi-miwifi-mini">
+				<source>Xiaomi MiWiFi Mini</source>
+			</trans-unit>
+			<trans-unit id="xiaomi-mi-router-4a-100m-edition">
+				<source>Xiaomi Mi Router 4A (100M Edition)</source>
+			</trans-unit>
+
 		</body>
 	</file>
 </xliff>
