@@ -93,16 +93,16 @@
 			<trans-unit id="raspberry-pi-2">
 				<source>Raspberry Pi 2</source>
 			</trans-unit>
-			<trans-unit id="raspberry-pi-2-mobel-b">
+			<trans-unit id="raspberrypi-2-mobel-b">
 				<source>Raspberry Pi 2B</source>
 			</trans-unit>
 			<trans-unit id="raspberry-pi">
 				<source>Raspberry Pi</source>
 			</trans-unit>
-			<trans-unit id="raspberry-pi-model-b">
+			<trans-unit id="raspberrypi-model-b">
 				<source>Raspberry Pi B</source>
 			</trans-unit>
-			<trans-unit id="tp-link-archer-c5">
+			<trans-unit id="tp-link-archer-c2">
 				<source>TP-Link Archer C2</source>
 			</trans-unit>
 			<trans-unit id="tp-link-archer-c5">
