@@ -47,6 +47,9 @@
 			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.md5">
 				<target>MD5-контрольна сума</target>
 			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.sha256">
+				<target>SHA-256-контрольна сума</target>
+			</trans-unit>
 			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.crdate">
 				<target>Створено</target>
 			</trans-unit>
