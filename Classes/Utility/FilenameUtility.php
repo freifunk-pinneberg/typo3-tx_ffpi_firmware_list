@@ -11,7 +11,7 @@ class FilenameUtility
      */
     public static function getFirmwareParts(string $filename): array
     {
-        $regex = '/^gluon-(?:[a-zA-Z]{2,10})-((\d+\.\d+\.?\d*)*-?((beta|exp|experimental)\d*)?)-(.*?)-?(v\d\.?\d*|rev-\w?\d+|xm|xw)?-?(sysupgrade|bootloader|factory_fw|factory_fw30|factory_fw35)?(\..{2,7})$/';
+        $regex = '/^gluon-(?:[a-zA-Z]{2,10})-((\d+\.\d+\.?\d*)*(?:-|\+)?((beta|exp|experimental|\d*?)\d*)?)-(.*?)-?(v\d\.?\d*|rev-\w?\d+|xm|xw)?-?(sysupgrade|bootloader|factory_fw|factory_fw30|factory_fw35)?(\..{2,7})$/';
         preg_match($regex, $filename, $filenameParts);
 
         $firmwareParts = [
