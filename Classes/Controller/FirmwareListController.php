@@ -6,6 +6,7 @@ use FFPI\FfpiFirmwareList\Domain\Repository\FirmwareVersionDetailRepository;
 use FFPI\FfpiFirmwareList\Utility\FilenameUtility;
 use TYPO3\CMS\Core\Cache\CacheManager;
 use TYPO3\CMS\Core\Page\AssetCollector;
+use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\Folder;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -41,29 +42,40 @@ class FirmwareListController extends ActionController
 
     public function listAction(): void
     {
+        // CSS zum generierten HTML hinzufügen
         $assetCollector = GeneralUtility::makeInstance(AssetCollector::class);
         $assetCollector->addStyleSheet('FirmwareList', 'EXT:ffpi_firmware_list/Resources/Public/Css/FirmwareList.css');
 
+        // Cache für die gesamte Firmwareliste
         $cacheManager = GeneralUtility::makeInstance(CacheManager::class);
         $cacheKey = 'ffpi_firmware_list_cache_' . $this->configurationManager->getContentObject()->data['uid'];;
         $cache = $cacheManager->getCache('ffpi_firmware_list_cache');
 
         $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
         if ($cache->has($cacheKey)) {
+            // Daten aus dem Cache abrufen, falls verfügbar
             $firmwareList = $cache->get($cacheKey);
         } else {
+            // Workaround für die sehr lange (nicht zwischengespeicherte) Generierungszeit
+            set_time_limit(600);
+
+            /** @var File[] $files */
             $files = [];
+            // Alle Dateien aus allen konfigurierten Ordnern abrufen (rekursiv)
             foreach ($this->folder as $folder) {
                 $folder = $resourceFactory->getFolderObjectFromCombinedIdentifier($folder);
                 $files = array_merge($files, $folder->getFiles(0, 0, Folder::FILTER_MODE_USE_OWN_AND_STORAGE_FILTERS, true, 'name'));
             }
             $firmwareList = [];
 
+            // Jede Datei verarbeiten (normalerweise etwa 250 pro Firmware-Ordner)
             foreach ($files as $file) {
                 if (FilenameUtility::stringContainsArray($file->getIdentifier(), $this->blacklistedPathSegments)) {
+                    // Dateien auf der Blacklist überspringen
                     continue;
                 }
 
+                // Hole einige Details über die Firmware aus dem Dateinamen
                 $firmwareParts = FilenameUtility::getFirmwareParts($file->getName());
                 $unifiedRouterIdentifier = FilenameUtility::createUnifiedRouterIdentifier($firmwareParts);
                 if ($firmwareParts['sysupgrade']) {
@@ -106,7 +118,7 @@ class FirmwareListController extends ActionController
                     }
                 }
                 if (!isset($firmwareList[$unifiedRouterIdentifier]['router']['icon'])) {
-                    trigger_error('Router image for ' . $unifiedRouterIdentifier . ' or ' . $firmwareParts['router'] . ' not found!', E_USER_WARNING);
+                    trigger_error('Router image for ' . $unifiedRouterIdentifier . ' or ' . $firmwareParts['router'] . ' not found!', E_USER_NOTICE);
                 }
             }
 

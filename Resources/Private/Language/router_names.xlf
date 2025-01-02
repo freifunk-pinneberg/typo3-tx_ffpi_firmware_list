@@ -322,6 +322,9 @@
 			<trans-unit id="gl.inet-gl-ar750">
 				<source>GL.iNet GL-AR750</source>
 			</trans-unit>
+			<trans-unit id="gl.inet-gl-mt1300">
+				<source>GL.iNet MT1300</source>
+			</trans-unit>
 			<trans-unit id="xiaomi-miwifi-mini">
 				<source>Xiaomi MiWiFi Mini</source>
 			</trans-unit>

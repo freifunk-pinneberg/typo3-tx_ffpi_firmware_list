@@ -41,6 +41,7 @@ class FilenameUtility
     public static function createUnifiedRouterIdentifier(array $firmwareParts): string
     {
         $firmwareParts['router'] = str_replace('ubnt', 'ubiquiti', $firmwareParts['router']);
+        $firmwareParts['router'] = str_replace('zbt', 'zbtlink', $firmwareParts['router']);
         return $firmwareParts['router'] . $firmwareParts['routerVersion'];
     }
 

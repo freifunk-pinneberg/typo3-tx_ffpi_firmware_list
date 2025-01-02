@@ -32,6 +32,9 @@ class RouterNameFallbackViewHelper extends AbstractViewHelper
         'onion' => 'Onion',
         'openmesh' => 'OpenMesh',
         'plasma-cloud' => 'Plasma Cloud',
+        'ravpower' => 'RAVPower',
+        'siemens' => 'Siemens',
+        'sophos' => 'Sophos',
         'tp-link' => 'TP-Link',
         'ubiquiti' => 'Ubiquiti',
         'ubnt' => 'Ubiquiti',
@@ -39,6 +42,7 @@ class RouterNameFallbackViewHelper extends AbstractViewHelper
         'wd' => 'Western Digital',
         'xiaomi' => 'Xiaomi',
         'zbt' => 'ZBT',
+        'zbtlink' => 'Zbtlink',
         'zyxel' => 'ZyXEL'
     ];
 
