@@ -60,6 +60,9 @@
 			<trans-unit id="avm-fritz-wlan-repeater-450e">
 				<source>AVM FRITZ!WLAN Repeater 450E</source>
 			</trans-unit>
+			<trans-unit id="arcadyan-vgv7510kw22">
+				<source>Arcadyan VGV7510KW22 (O2 Box 6431)</source>
+			</trans-unit>
 			<trans-unit id="cudy-wr1000">
 				<source>Cudy WR1000</source>
 			</trans-unit>
@@ -355,7 +358,12 @@
 			<trans-unit id="xiaomi-mi-router-4a-100m-edition">
 				<source>Xiaomi Mi Router 4A (100M Edition)</source>
 			</trans-unit>
-
+			<trans-unit id="xiaomi-mi-router-4a-100m-international-edition">
+				<source>Xiaomi Mi Router 4A (R4AC) 100M (International version)</source>
+			</trans-unit>
+			<trans-unit id="xiaomi-mi-router-4a-gigabit-edition">
+				<source>Xiaomi MI Router 4A Gigabit Edition</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

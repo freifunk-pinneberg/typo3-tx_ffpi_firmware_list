@@ -35,16 +35,27 @@ class FilenameUtility
     }
 
     /**
+     * @param string $fileName
+     * @return string
+     */
+    public static function createUnifiedRouterFileName(string $fileName): string
+    {
+        $fileName = preg_replace('/tp-link-archer-c6-v2-eu-ru-jp\.bin$/', 'tp-link-archer-c6-v2.bin',  $fileName);
+        $fileName = preg_replace('/tp-link-tl-wr842n-v3\.bin$/', 'tp-link-tl-wr842n-nd-v3.bin',  $fileName);
+        return $fileName;
+    }
+
+    /**
      * @param array $firmwareParts
      * @return string
      */
     public static function createUnifiedRouterIdentifier(array $firmwareParts): string
     {
-        $firmwareParts['router'] = str_replace('ubnt', 'ubiquiti', $firmwareParts['router']);
+        $firmwareParts['router'] = str_replace('ubnt-', 'ubiquiti-', $firmwareParts['router']);
         $firmwareParts['router'] = str_replace('ubiquiti-erx', 'ubiquiti-edgerouter-x', $firmwareParts['router']);
-        $firmwareParts['router'] = preg_replace('/^zbt/', 'zbtlink', $firmwareParts['router']);
+        $firmwareParts['router'] = preg_replace('/^zbt-/', 'zbtlink-', $firmwareParts['router']);
         $firmwareParts['router'] = preg_replace('/^gl.inet/', 'gl-inet', $firmwareParts['router']);
-        $firmwareParts['router'] = preg_replace('/^gl/', 'gl-inet', $firmwareParts['router']);
+        $firmwareParts['router'] = preg_replace('/^gl-/', 'gl-inet-', $firmwareParts['router']);
         return $firmwareParts['router'] . $firmwareParts['routerVersion'];
     }
 

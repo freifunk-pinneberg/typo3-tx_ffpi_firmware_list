@@ -76,7 +76,7 @@ class FirmwareListController extends ActionController
                 }
 
                 // Hole einige Details über die Firmware aus dem Dateinamen
-                $firmwareParts = FilenameUtility::getFirmwareParts($file->getName());
+                $firmwareParts = FilenameUtility::getFirmwareParts(FilenameUtility::createUnifiedRouterFileName($file->getName()));
                 $unifiedRouterIdentifier = FilenameUtility::createUnifiedRouterIdentifier($firmwareParts);
                 if ($firmwareParts['sysupgrade']) {
                     $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['sysupgrade']['firmwareParts'] = $firmwareParts;
