@@ -60,6 +60,15 @@
 			<trans-unit id="avm-fritz-wlan-repeater-450e">
 				<source>AVM FRITZ!WLAN Repeater 450E</source>
 			</trans-unit>
+			<trans-unit id="cudy-wr1000">
+				<source>Cudy WR1000</source>
+			</trans-unit>
+			<trans-unit id="cudy-wr2100">
+				<source>Cudy WR2100</source>
+			</trans-unit>
+			<trans-unit id="cudy-x6">
+				<source>Cudy X6</source>
+			</trans-unit>
 			<trans-unit id="d-link_dgs-1210-10p">
 				<source>D-Link DGS-1210-10P</source>
 			</trans-unit>

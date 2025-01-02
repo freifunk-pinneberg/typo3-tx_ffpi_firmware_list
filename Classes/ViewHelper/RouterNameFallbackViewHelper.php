@@ -21,7 +21,6 @@ class RouterNameFallbackViewHelper extends AbstractViewHelper
         'enterasys' => 'Enterasys',
         'engenius' => 'EnGenius',
         'friendlyelec' => 'FriendlyElec',
-        'gl' => 'GL.iNet',
         'gl-inet' => 'GL.iNet',
         'gl.inet' => 'GL.iNet',
         'joy-it' => 'Joy-IT',

@@ -11,7 +11,7 @@ class FilenameUtility
      */
     public static function getFirmwareParts(string $filename): array
     {
-        $regex = '/^gluon-(?:[a-zA-Z]{2,10})-((\d+\.\d+\.?\d*)*(?:-|\+)?((beta|exp|experimental|\d*?)\d*)?)-(.*?)-?(v\d\.?\d*|rev-\w?\d+|xm|xw)?-?(sysupgrade|bootloader|factory_fw|factory_fw30|factory_fw35)?(\..{2,7})$/';
+        $regex = '/^gluon-(?:[a-zA-Z]{2,10})-((\d+\.\d+\.?\d*)*(?:-|\+)?((beta|exp|experimental|\d*?)\d*)?)-(.*?)-?(v\d\.?\d*|rev-\w?\d+|xm|xw)?-?(sysupgrade|bootloader|factory_fw|factory_fw30|factory_fw35|kernel|rootfs)?(\..{2,7})$/';
         preg_match($regex, $filename, $filenameParts);
 
         $firmwareParts = [
@@ -41,10 +41,10 @@ class FilenameUtility
     public static function createUnifiedRouterIdentifier(array $firmwareParts): string
     {
         $firmwareParts['router'] = str_replace('ubnt', 'ubiquiti', $firmwareParts['router']);
-        $firmwareParts['router'] = str_replace('ubiquiti-erx', 'edgerouter-x', $firmwareParts['router']);
+        $firmwareParts['router'] = str_replace('ubiquiti-erx', 'ubiquiti-edgerouter-x', $firmwareParts['router']);
         $firmwareParts['router'] = preg_replace('/^zbt/', 'zbtlink', $firmwareParts['router']);
         $firmwareParts['router'] = preg_replace('/^gl.inet/', 'gl-inet', $firmwareParts['router']);
-        #$firmwareParts['router'] = preg_replace('/^gl/', 'gl-inet', $firmwareParts['router']);
+        $firmwareParts['router'] = preg_replace('/^gl/', 'gl-inet', $firmwareParts['router']);
         return $firmwareParts['router'] . $firmwareParts['routerVersion'];
     }
 
