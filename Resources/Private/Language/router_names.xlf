@@ -60,6 +60,9 @@
 			<trans-unit id="avm-fritz-wlan-repeater-450e">
 				<source>AVM FRITZ!WLAN Repeater 450E</source>
 			</trans-unit>
+			<trans-unit id="d-link_dgs-1210-10p">
+				<source>D-Link DGS-1210-10P</source>
+			</trans-unit>
 			<trans-unit id="devolo-wifi-pro-1200e">
 				<source>Devolo WiFi pro 1200e</source>
 			</trans-unit>
@@ -80,6 +83,12 @@
 			</trans-unit>
 			<trans-unit id="engenius-ens620ext">
 				<source>EnGenius ENS620EXT</source>
+			</trans-unit>
+			<trans-unit id="extreme-networks-ws-ap3825i">
+				<source>Extreme Networks WS-AP3825i</source>
+			</trans-unit>
+			<trans-unit id="o2-box-6431">
+				<source>O2 Box 6431</source>
 			</trans-unit>
 			<trans-unit id="raspberry-pi-5">
 				<source>Raspberry Pi 5</source>
@@ -255,6 +264,12 @@
 			</trans-unit>
 			<trans-unit id="ubiquiti-unifi">
 				<source>Ubiquiti UniFi</source>
+			</trans-unit>
+			<trans-unit id="ubiquiti-unifi-6-lite">
+				<source>Ubiquiti UniFi 6 Lite</source>
+			</trans-unit>
+			<trans-unit id="ubiquiti-unifi-6-lr">
+				<source>Ubiquiti UniFi 6 Long-Range</source>
 			</trans-unit>
 			<trans-unit id="ubiquiti-unifi-ac-lite">
 				<source>Ubiquiti UniFi AC Lite</source>

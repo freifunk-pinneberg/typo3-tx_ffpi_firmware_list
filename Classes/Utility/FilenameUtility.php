@@ -41,7 +41,10 @@ class FilenameUtility
     public static function createUnifiedRouterIdentifier(array $firmwareParts): string
     {
         $firmwareParts['router'] = str_replace('ubnt', 'ubiquiti', $firmwareParts['router']);
-        $firmwareParts['router'] = str_replace('zbt', 'zbtlink', $firmwareParts['router']);
+        $firmwareParts['router'] = str_replace('ubiquiti-erx', 'edgerouter-x', $firmwareParts['router']);
+        $firmwareParts['router'] = preg_replace('/^zbt/', 'zbtlink', $firmwareParts['router']);
+        $firmwareParts['router'] = preg_replace('/^gl.inet/', 'gl-inet', $firmwareParts['router']);
+        #$firmwareParts['router'] = preg_replace('/^gl/', 'gl-inet', $firmwareParts['router']);
         return $firmwareParts['router'] . $firmwareParts['routerVersion'];
     }
 
