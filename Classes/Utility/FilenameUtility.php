@@ -10,7 +10,23 @@ class FilenameUtility
      * This function tries to extract all the informationen out of the filename
      *
      * @param string $filename
-     * @return array
+     * @return array{
+     *     fullName: string,
+     *     firmwareVersion: string|null,
+     *     firmwareVersionNumber: string|null,
+     *     sortableFirmwareVersionNumber: string|null,
+     *     firmwareVersionAddition: string|null,
+     *     router: string|null,
+     *     routerVersion: string|null,
+     *     sysupgrade: bool,
+     *     factory: bool,
+     *     other: bool,
+     *     beta: bool,
+     *     firmwareType: string,
+     *     experimental: bool,
+     *     stable: bool,
+     *     fileType: string|null
+     * } An associative array containing parsed firmware details.
      */
     public static function getFirmwareParts(string $filename): array
     {

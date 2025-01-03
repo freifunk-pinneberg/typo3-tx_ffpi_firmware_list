@@ -23,7 +23,7 @@ class FirmwareListController extends ActionController
     /** @var array<string> $folder */
     protected $folder;
 
-    /** @var array $blacklistedPathSegments */
+    /** @var array<string> $blacklistedPathSegments */
     protected $blacklistedPathSegments = [];
 
     /** @var FirmwareVersionDetailRepository */
