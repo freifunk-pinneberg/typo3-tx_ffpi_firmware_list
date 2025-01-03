@@ -99,6 +99,27 @@
 			<trans-unit id="extreme-networks-ws-ap3825i">
 				<source>Extreme Networks WS-AP3825i</source>
 			</trans-unit>
+			<trans-unit id="mercusys-mr70x">
+				<source>Mercusys MR70X</source>
+			</trans-unit>
+			<trans-unit id="netgear-r6020">
+				<source>NETGEAR R6020</source>
+			</trans-unit>
+			<trans-unit id="netgear-r6120">
+				<source>NETGEAR R6120</source>
+			</trans-unit>
+			<trans-unit id="netgear-r6220">
+				<source>NETGEAR R6220</source>
+			</trans-unit>
+			<trans-unit id="netgear-r6260">
+				<source>NETGEAR R6260</source>
+			</trans-unit>
+			<trans-unit id="netgear-wac104">
+				<source>NETGEAR WAC104</source>
+			</trans-unit>
+			<trans-unit id="netgear-wax202">
+				<source>NETGEAR WAX202</source>
+			</trans-unit>
 			<trans-unit id="o2-box-6431">
 				<source>O2 Box 6431</source>
 			</trans-unit>
@@ -123,6 +144,9 @@
 			<trans-unit id="raspberrypi-model-b">
 				<source>Raspberry Pi B</source>
 			</trans-unit>
+			<trans-unit id="tp-link-archer-a7">
+				<source>TP-Link Archer A7</source>
+			</trans-unit>
 			<trans-unit id="tp-link-archer-c2">
 				<source>TP-Link Archer C2</source>
 			</trans-unit>
@@ -137,6 +161,9 @@
 			</trans-unit>
 			<trans-unit id="tp-link-archer-c20">
 				<source>TP-Link Archer C20</source>
+			</trans-unit>
+			<trans-unit id="tp-link-archer-c20i">
+				<source>TP-Link Archer C20i</source>
 			</trans-unit>
 			<trans-unit id="tp-link-archer-c50">
 				<source>TP-Link Archer C50</source>
@@ -337,6 +364,9 @@
 			<trans-unit id="gl-inet-6416a">
 				<source>GL.iNet 6416A</source>
 			</trans-unit>
+			<trans-unit id="gl-inet-gl-b1300">
+				<source>GL.iNet GL-B1300</source>
+			</trans-unit>
 			<trans-unit id="gl-ar150">
 				<source>GL.iNet GL-AR150</source>
 			</trans-unit>
@@ -352,6 +382,9 @@
 			<trans-unit id="gl.inet-gl-mt1300">
 				<source>GL.iNet MT1300</source>
 			</trans-unit>
+			<trans-unit id="gl.inet-gl-usb150">
+				<source>GL.iNet GL-USB150</source>
+			</trans-unit>
 			<trans-unit id="xiaomi-miwifi-mini">
 				<source>Xiaomi MiWiFi Mini</source>
 			</trans-unit>
@@ -363,6 +396,12 @@
 			</trans-unit>
 			<trans-unit id="xiaomi-mi-router-4a-gigabit-edition">
 				<source>Xiaomi MI Router 4A Gigabit Edition</source>
+			</trans-unit>
+			<trans-unit id="xiaomi-mi-router-4c">
+				<source>Xiaomi Mi Router 4C</source>
+			</trans-unit>
+			<trans-unit id="xiaomi-redmi-router-ax6s">
+				<source>Xiaomi Redmi AX6S</source>
 			</trans-unit>
 		</body>
 	</file>

@@ -7,6 +7,12 @@ use \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 class RouterNameFallbackViewHelper extends AbstractViewHelper
 {
+    /**
+     * We don't always have the exact match in the router_names.xlf,
+     * this is the fallback to show at least the manufacturer in the correct formatting.
+     *
+     * @var string[]
+     */
     protected static $manufacturer = [
         '8devices' => '8devices',
         'aerohive' => 'Aerohive',
@@ -27,6 +33,7 @@ class RouterNameFallbackViewHelper extends AbstractViewHelper
         'lemaker' => 'LeMaker',
         'linksys' => 'Linksys',
         'mikrotik' => 'Mikrotik',
+        'mercusys' => 'Mercusys',
         'netgear' => 'NETGEAR',
         'nexx' => 'Nexx',
         'ocedo' => 'Ocedo',
@@ -36,6 +43,7 @@ class RouterNameFallbackViewHelper extends AbstractViewHelper
         'ravpower' => 'RAVPower',
         'siemens' => 'Siemens',
         'sophos' => 'Sophos',
+        'teltonika' => 'Teltonika',
         'tp-link' => 'TP-Link',
         'ubiquiti' => 'Ubiquiti',
         'ubnt' => 'Ubiquiti',

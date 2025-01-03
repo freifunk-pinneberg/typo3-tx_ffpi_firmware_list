@@ -6,6 +6,9 @@ class FilenameUtility
 {
 
     /**
+     * Gluon creates filename like gluon-ffpi-1.1.0-beta20240912-tp-link-cpe210-v2.bin
+     * This function tries to extract all the informationen out of the filename
+     *
      * @param string $filename
      * @return array
      */
@@ -35,6 +38,9 @@ class FilenameUtility
     }
 
     /**
+     * Different OpenWRT/Gluon versions, and different maintainers have a different naming convention. We try to unify it.
+     * This function is called early to handel cases where the getFirmwareParts() regex struggles with bad filenames
+     *
      * @param string $fileName
      * @return string
      */
@@ -42,10 +48,22 @@ class FilenameUtility
     {
         $fileName = preg_replace('/tp-link-archer-c6-v2-eu-ru-jp\.bin$/', 'tp-link-archer-c6-v2.bin',  $fileName);
         $fileName = preg_replace('/tp-link-tl-wr842n-v3\.bin$/', 'tp-link-tl-wr842n-nd-v3.bin',  $fileName);
+        $fileName = preg_replace('/n-nd-v2\.bin$/', 'nd-v2.bin',  $fileName);
+        $fileName = preg_replace('/n-nd-v3\.bin$/', 'nd-v3.bin',  $fileName);
+        $fileName = preg_replace('/n-nd-v4\.bin$/', 'nd-v4.bin',  $fileName);
+        $fileName = str_replace('cpe210-v1.0.bin', 'cpe210-v1.bin', $fileName);
+        $fileName = str_replace('cpe210-v2.0.bin', 'cpe210-v2.bin', $fileName);
+        $fileName = str_replace('cpe210-v3.0.bin', 'cpe210-v3.bin', $fileName);
+        $fileName = str_replace('cpe220-v1.0.bin', 'cpe220-v1.bin', $fileName);
+        $fileName = str_replace('cpe220-v2.0.bin', 'cpe220-v2.bin', $fileName);
+        $fileName = str_replace('cpe220-v3.0.bin', 'cpe220-v3.bin', $fileName);
         return $fileName;
     }
 
     /**
+     * Different OpenWRT/Gluon versions, and different maintainers have a different naming convention. We try to unify it.
+     * This function is called later to ensure proper grouping of files, and to have a base for the router svg images.
+     *
      * @param array $firmwareParts
      * @return string
      */
