@@ -55,8 +55,8 @@
                     <f:for each="{router.firmware}" as="firmware" iteration="i">
                         <f:if condition="{firmware.other}">
                             <f:if condition="{firmware.other.firmwareParts.recommended}">
-                                <f:then><strong><a href="{firmware.other.file.publicUrl}" download>{firmware.other.firmwareParts.firmwareVersion} {firmware.other.firmwareParts.firmwareType}</a></strong></f:then>
-                                <f:else><a href="{firmware.other.file.publicUrl}" download>{firmware.other.firmwareParts.firmwareVersion} {firmware.other.firmwareParts.firmwareType}</a></f:else>
+                                <f:then><strong><a href="{firmware.other.file.publicUrl}" download title="{firmware.other.firmwareParts.firmwareVersion} {firmware.other.firmwareParts.firmwareType}"><f:format.crop maxCharacters="21" respectWordBoundaries="false" append="...">{firmware.other.firmwareParts.firmwareVersion} {firmware.other.firmwareParts.firmwareType}</f:format.crop></a></strong></f:then>
+                                <f:else><a href="{firmware.other.file.publicUrl}" download title="{firmware.other.firmwareParts.firmwareVersion} {firmware.other.firmwareParts.firmwareType}"><f:format.crop maxCharacters="21" respectWordBoundaries="false" append="...">{firmware.other.firmwareParts.firmwareVersion} {firmware.other.firmwareParts.firmwareType}</f:format.crop></a></f:else>
                             </f:if>
                         </f:if>
                         <f:if condition="{i.isLast}">

@@ -62,17 +62,17 @@ class FilenameUtility
      */
     public static function createUnifiedRouterFileName(string $fileName): string
     {
-        $fileName = preg_replace('/tp-link-archer-c6-v2-eu-ru-jp\.bin$/', 'tp-link-archer-c6-v2.bin',  $fileName);
-        $fileName = preg_replace('/tp-link-tl-wr842n-v3\.bin$/', 'tp-link-tl-wr842n-nd-v3.bin',  $fileName);
-        $fileName = preg_replace('/n-nd-v2\.bin$/', 'nd-v2.bin',  $fileName);
-        $fileName = preg_replace('/n-nd-v3\.bin$/', 'nd-v3.bin',  $fileName);
-        $fileName = preg_replace('/n-nd-v4\.bin$/', 'nd-v4.bin',  $fileName);
-        $fileName = str_replace('cpe210-v1.0.bin', 'cpe210-v1.bin', $fileName);
-        $fileName = str_replace('cpe210-v2.0.bin', 'cpe210-v2.bin', $fileName);
-        $fileName = str_replace('cpe210-v3.0.bin', 'cpe210-v3.bin', $fileName);
-        $fileName = str_replace('cpe220-v1.0.bin', 'cpe220-v1.bin', $fileName);
-        $fileName = str_replace('cpe220-v2.0.bin', 'cpe220-v2.bin', $fileName);
-        $fileName = str_replace('cpe220-v3.0.bin', 'cpe220-v3.bin', $fileName);
+        $fileName = preg_replace('/tp-link-archer-c6-v2-eu-ru-jp(-sysupgrade)?\.bin$/', 'tp-link-archer-c6-v2$1.bin', $fileName);
+        $fileName = preg_replace('/tp-link-tl-wr842n-v3(-sysupgrade)?\.bin$/', 'tp-link-tl-wr842n-nd-v3$1.bin', $fileName);
+        $fileName = preg_replace('/n-nd-v2(-sysupgrade)?\.bin$/', 'nd-v2$1.bin', $fileName);
+        $fileName = preg_replace('/n-nd-v3(-sysupgrade)?\.bin$/', 'nd-v3$1.bin', $fileName);
+        $fileName = preg_replace('/n-nd-v4(-sysupgrade)?\.bin$/', 'nd-v4$1.bin', $fileName);
+        $fileName = preg_replace('/cpe210-v1\.0(-sysupgrade)?\.bin$/', 'cpe210-v1$1.bin', $fileName);
+        $fileName = preg_replace('/cpe210-v2\.0(-sysupgrade)?\.bin$/', 'cpe210-v2$1.bin', $fileName);
+        $fileName = preg_replace('/cpe210-v3\.0(-sysupgrade)?\.bin$/', 'cpe210-v3$1.bin', $fileName);
+        $fileName = preg_replace('/cpe220-v1\.0(-sysupgrade)?\.bin$/', 'cpe220-v1$1.bin', $fileName);
+        $fileName = preg_replace('/cpe220-v2\.0(-sysupgrade)?\.bin$/', 'cpe220-v2$1.bin', $fileName);
+        $fileName = preg_replace('/cpe220-v3\.0(-sysupgrade)?\.bin$/', 'cpe220-v3$1.bin', $fileName);
         return $fileName;
     }
 
