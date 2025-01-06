@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file target-language="dk" datatype="plaintext" original="messages" date="2023-12-19T20:53:37Z" product-name="ffpi_firmware_list">
+		<header />
+		<body>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.title">
+				<target>Firmware-liste</target>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.description">
+				<target>Liste med firmware-downloads</target>
+			</trans-unit>
+			<trans-unit id="header.router">
+				<target>Router</target>
+			</trans-unit>
+			<trans-unit id="header.hw_version">
+				<target>Hardware-version</target>
+			</trans-unit>
+			<trans-unit id="header.factory">
+				<target>Installation af firmware</target>
+			</trans-unit>
+			<trans-unit id="header.sysupgrade">
+				<target>Opdatering</target>
+			</trans-unit>
+			<trans-unit id="header.other">
+				<target>Andet</target>
+			</trans-unit>
+
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.header">
+				<source>Download informations</source>
+				<target>Downloadoplysninger</target>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.router">
+				<target>Router</target>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.hardware_version">
+				<target>Hardwarevariant</target>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.firmware_version">
+				<target>Freifunk Firmware</target>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.filename">
+				<target>Filnavn</target>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.filesize">
+				<target>Filstørrelse</target>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.md5">
+				<target>MD5 checksum</target>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.sha256">
+				<target>SHA-256 checksum</target>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.crdate">
+				<target>Oprettet</target>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>

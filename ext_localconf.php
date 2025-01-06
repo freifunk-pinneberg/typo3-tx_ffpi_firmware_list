@@ -3,14 +3,14 @@
 defined('TYPO3_MODE') || die('Access denied.');
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'FFPI.FfpiFirmwareList',
+    'FfpiFirmwareList',
     'Firmwarelist',
     [
-        'FirmwareList' => 'list'
+        \FFPI\FfpiFirmwareList\Controller\FirmwareListController::class => 'list'
     ],
     // non-cacheable actions
     [
-        'FirmwareList' => ''
+        \FFPI\FfpiFirmwareList\Controller\FirmwareListController::class => ''
     ]
 );
 
@@ -24,3 +24,7 @@ $iconRegistry->registerIcon(
     \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
     ['source' => 'EXT:ffpi_firmware_list/ext_icon.svg']
 );
+
+if (!is_array($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['ffpi_firmware_list_cache'])) {
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['ffpi_firmware_list_cache'] = [];
+}

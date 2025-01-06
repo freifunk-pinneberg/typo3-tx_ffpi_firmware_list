@@ -21,7 +21,68 @@
 			<trans-unit id="header.sysupgrade">
 				<source>Update</source>
 			</trans-unit>
+			<trans-unit id="header.other">
+				<source>Other</source>
+			</trans-unit>
 
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.header">
+				<source>Download informations</source>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.router">
+				<source>Router</source>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.hardware_version">
+				<source>Hardware variant</source>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.firmware_version">
+				<source>Freifunk Firmware</source>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.filename">
+				<source>File name</source>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.filesize">
+				<source>File size</source>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.md5">
+				<source>MD5 checksum</source>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.sha256">
+				<target>SHA-256 checksum</target>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.crdate">
+				<source>Created</source>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.gluon_release">
+				<source>Gluon Release</source>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.openwrt_release">
+				<source>OpenWRT Release</source>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_firmwarelist.overlay.git">
+				<source>Build Sourcecode</source>
+			</trans-unit>
+
+			<trans-unit id="tx_ffpifirmwarelist_domain_model_firmwareversiondetail">
+				<source>Firmware Details</source>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_domain_model_firmwareversiondetail.version">
+				<source>Firmware Version</source>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_domain_model_firmwareversiondetail.gluon_release">
+				<source>Gluon Release</source>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_domain_model_firmwareversiondetail.openwrt_release">
+				<source>OpenWRT Release</source>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_domain_model_firmwareversiondetail.has_security_issues">
+				<source>Hat sicherheitslücken</source>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_domain_model_firmwareversiondetail.additional_notes">
+				<source>Weitere Hinweise (freitext)</source>
+			</trans-unit>
+			<trans-unit id="tx_ffpifirmwarelist_domain_model_firmwareversiondetail.git">
+				<source>Build Sourcecode (git)</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

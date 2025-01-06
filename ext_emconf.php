@@ -16,14 +16,11 @@ $EM_CONF[$_EXTKEY] = [
     'category' => 'plugin',
     'author' => 'Kevin Quiatkowski',
     'author_email' => 'kevin@pinneberg.freifunk.net',
-    'state' => 'alpha',
-    'uploadfolder' => 0,
-    'createDirs' => '',
-    'clearCacheOnLoad' => 0,
-    'version' => '1.0.0',
+    'state' => 'stable',
+    'version' => '1.2.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '9.5.0-10.4.99',
+            'typo3' => '10.0.0-10.4.99',
         ],
         'conflicts' => [],
         'suggests' => [],

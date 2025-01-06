@@ -7,26 +7,52 @@ use \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 class RouterNameFallbackViewHelper extends AbstractViewHelper
 {
+    /**
+     * We don't always have the exact match in the router_names.xlf,
+     * this is the fallback to show at least the manufacturer in the correct formatting.
+     *
+     * @var string[]
+     */
     protected static $manufacturer = [
+        '8devices' => '8devices',
+        'aerohive' => 'Aerohive',
+        'alfa-network' => 'ALFA Network',
+        'allnet' => 'ALLNET',
+        'aruba' => 'Aruba',
+        'avm-fritz' => 'AVM FRITZ!',
+        'buffalo' => 'Buffalo',
+        'cudy' => 'Cudy',
+        'd-link' => 'D-Link',
+        'devolo' => 'Devolo',
+        'enterasys' => 'Enterasys',
+        'engenius' => 'EnGenius',
+        'friendlyelec' => 'FriendlyElec',
+        'gl-inet' => 'GL.iNet',
+        'gl.inet' => 'GL.iNet',
+        'joy-it' => 'Joy-IT',
+        'lemaker' => 'LeMaker',
+        'linksys' => 'Linksys',
+        'mikrotik' => 'Mikrotik',
+        'mercusys' => 'Mercusys',
+        'netgear' => 'NETGEAR',
+        'nexx' => 'Nexx',
+        'ocedo' => 'Ocedo',
+        'onion' => 'Onion',
+        'openmesh' => 'OpenMesh',
+        'plasma-cloud' => 'Plasma Cloud',
+        'ravpower' => 'RAVPower',
+        'siemens' => 'Siemens',
+        'sophos' => 'Sophos',
+        'teltonika' => 'Teltonika',
         'tp-link' => 'TP-Link',
         'ubiquiti' => 'Ubiquiti',
         'ubnt' => 'Ubiquiti',
-        'alfa-network' => 'ALFA Network',
-        'allnet' => 'ALLNET',
-        'buffalo' => 'Buffalo',
-        'd-link' => 'D-Link',
-        'linksys' => 'Linksys',
-        'netgear' => 'NETGEAR',
-        'openmesh' => 'OpenMesh',
-        'avm-fritz' => 'AVM FRITZ!',
-        'gl-inet' => 'GL.iNet',
-        'zyxel' => 'ZyXEL',
-        'lemaker' => 'LeMaker',
+        'vocore' => 'VoCore',
         'wd' => 'Western Digital',
-        '8devices' => '8devices',
-        'onion' => 'Onion',
-        'aerohive' => 'Aerohive',
-        'ocedo' => 'Ocedo'
+        'xiaomi' => 'Xiaomi',
+        'zbt' => 'ZBT',
+        'zbtlink' => 'Zbtlink',
+        'zyxel' => 'ZyXEL'
     ];
 
     public function initializeArguments()

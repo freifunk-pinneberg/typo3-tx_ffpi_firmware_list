@@ -1,7 +1,7 @@
 <?php
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-    'FFPI.FfpiFirmwareList',
+    'FfpiFirmwareList',
     'Firmwarelist',
     'LLL:EXT:ffpi_firmware_list/Resources/Private/Language/locallang.xlf:tx_ffpifirmwarelist_firmwarelist.title'
 );

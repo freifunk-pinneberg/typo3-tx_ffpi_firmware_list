@@ -3,25 +3,34 @@
       data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 <f:section name="content">
-
     <table class="contenttable firmware-list">
         <thead>
         <tr>
-            <th scope="col"><f:translate key="header.router" /></th>
+            <th scope="col" colspan="2"><f:translate key="header.router" /></th>
             <th scope="col"><f:translate key="header.hw_version" /></th>
             <th scope="col"><f:translate key="header.factory" /></th>
             <th scope="col"><f:translate key="header.sysupgrade" /></th>
+            <th scope="col"><f:translate key="header.other" /></th>
         </tr>
         </thead>
         <f:for each="{firmwareList}" as="router" key="unifiedRouterIdentifier">
 
             <tr id="{unifiedRouterIdentifier}">
+                <td>
+                    <f:if condition="{router.router.icon}">
+                        <f:image class="router-image" src="{router.router.icon}" width="150" />
+                    </f:if>
+                </td>
                 <td><f:translate key="LLL:EXT:ffpi_firmware_list/Resources/Private/Language/router_names.xlf:{router.router.router}"><firmware:routerNameFallback unifiedRouterIdentifier="{router.router.router}" /></f:translate></td>
                 <td>{router.router.routerVersion}</td>
                 <td>
                     <f:for each="{router.firmware}" as="firmware" iteration="i">
                         <f:if condition="{firmware.factory}">
-                            <a href="{firmware.factory.file.publicUrl}">{firmware.factory.firmwareParts.firmwareVersion}</a>
+                            <f:if condition="{firmware.factory.firmwareParts.recommended}">
+                                <f:then><strong><a href="{firmware.factory.file.publicUrl}" download>{firmware.factory.firmwareParts.firmwareVersion}</a></strong></f:then>
+                                <f:else><a href="{firmware.factory.file.publicUrl}" download>{firmware.factory.firmwareParts.firmwareVersion}</a></f:else>
+                            </f:if>
+                            <f:render partial="DownloadInfoOverlay" arguments="{firmware: firmware.factory, router: router}" />
                         </f:if>
                         <f:if condition="{i.isLast}">
                             <f:else><br/></f:else>
@@ -31,7 +40,24 @@
                 <td>
                     <f:for each="{router.firmware}" as="firmware" iteration="i">
                         <f:if condition="{firmware.sysupgrade}">
-                            <a href="{firmware.sysupgrade.file.publicUrl}">{firmware.sysupgrade.firmwareParts.firmwareVersion}</a>
+                            <f:if condition="{firmware.sysupgrade.firmwareParts.recommended}">
+                                <f:then><strong><a href="{firmware.sysupgrade.file.publicUrl}" download>{firmware.sysupgrade.firmwareParts.firmwareVersion}</a></strong></f:then>
+                                <f:else><a href="{firmware.sysupgrade.file.publicUrl}" download>{firmware.sysupgrade.firmwareParts.firmwareVersion}</a></f:else>
+                            </f:if>
+                            <f:render partial="DownloadInfoOverlay" arguments="{firmware: firmware.sysupgrade, router: router}" />
+                        </f:if>
+                        <f:if condition="{i.isLast}">
+                            <f:else><br/></f:else>
+                        </f:if>
+                    </f:for>
+                </td>
+                <td>
+                    <f:for each="{router.firmware}" as="firmware" iteration="i">
+                        <f:if condition="{firmware.other}">
+                            <f:if condition="{firmware.other.firmwareParts.recommended}">
+                                <f:then><strong><a href="{firmware.other.file.publicUrl}" download title="{firmware.other.firmwareParts.firmwareVersion} {firmware.other.firmwareParts.firmwareType}"><f:format.crop maxCharacters="21" respectWordBoundaries="false" append="...">{firmware.other.firmwareParts.firmwareVersion} {firmware.other.firmwareParts.firmwareType}</f:format.crop></a></strong></f:then>
+                                <f:else><a href="{firmware.other.file.publicUrl}" download title="{firmware.other.firmwareParts.firmwareVersion} {firmware.other.firmwareParts.firmwareType}"><f:format.crop maxCharacters="21" respectWordBoundaries="false" append="...">{firmware.other.firmwareParts.firmwareVersion} {firmware.other.firmwareParts.firmwareType}</f:format.crop></a></f:else>
+                            </f:if>
                         </f:if>
                         <f:if condition="{i.isLast}">
                             <f:else><br/></f:else>
