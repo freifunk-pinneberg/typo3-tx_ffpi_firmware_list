@@ -55,7 +55,7 @@ class RouterNameFallbackViewHelper extends AbstractViewHelper
         'zyxel' => 'ZyXEL'
     ];
 
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         parent::initializeArguments();
         $this->registerArgument('unifiedRouterIdentifier', 'string', '', true);
@@ -67,7 +67,7 @@ class RouterNameFallbackViewHelper extends AbstractViewHelper
      * @param RenderingContextInterface $renderingContext
      * @return string
      */
-    public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext)
+    public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext): string
     {
         $routerName = $arguments['unifiedRouterIdentifier'];
         $count = 0;

@@ -2,6 +2,7 @@
 
 namespace FFPI\FfpiFirmwareList\Domain\Repository;
 
+use FFPI\FfpiFirmwareList\Domain\Model\FirmwareVersionDetail;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /***
@@ -17,6 +18,7 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
  * The repository for FirmwareVersionDetailRepository
+ * @extends Repository<FirmwareVersionDetail>
  */
 class FirmwareVersionDetailRepository extends Repository
 {

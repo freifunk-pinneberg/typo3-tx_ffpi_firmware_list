@@ -35,12 +35,12 @@ class FilenameUtility
 
         $firmwareParts = [
             'fullName' => $filename,
-            'firmwareVersion' => $filenameParts[1],
-            'firmwareVersionNumber' => $filenameParts[2],
-            'sortableFirmwareVersionNumber' => self::convertVersionNumber($filenameParts[1]),
-            'firmwareVersionAddition' => $filenameParts[3],
-            'router' => $filenameParts[5],
-            'routerVersion' => $filenameParts[6],
+            'firmwareVersion' => $filenameParts[1] ?? null,
+            'firmwareVersionNumber' => $filenameParts[2] ?? null,
+            'sortableFirmwareVersionNumber' => self::convertVersionNumber($filenameParts[1] ?? '0'),
+            'firmwareVersionAddition' => $filenameParts[3] ?? null,
+            'router' => $filenameParts[5] ?? '',
+            'routerVersion' => $filenameParts[6] ?? null,
             'sysupgrade' => ($filenameParts[7] == 'sysupgrade'),
             'factory' => ($filenameParts[7] == ''),
             'other' => ($filenameParts[7] !== 'sysupgrade' && $filenameParts[7] !== ''),
@@ -48,7 +48,7 @@ class FilenameUtility
             'firmwareType' => empty($filenameParts[7]) ? 'factory' : $filenameParts[7],
             'experimental' => ($filenameParts[4] == 'exp' || $filenameParts[4] == 'experimental'),
             'stable' => (empty($filenameParts[4])),
-            'fileType' => $filenameParts[8],
+            'fileType' => $filenameParts[8] ?? null,
         ];
         return $firmwareParts;
     }
