@@ -12,12 +12,12 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Freifunk Firmware List',
-    'description' => 'Generates gluon download Links',
+    'description' => 'This extensions offers a frontend Plugin, where you can select FAL Folders. These Folders are then crawled and information like Router Model, Firmware Version and Firmware Type is extracted from the filename. A nice download table is generated with all the information.',
     'category' => 'plugin',
     'author' => 'Kevin Quiatkowski',
     'author_email' => 'kevin@pinneberg.freifunk.net',
     'state' => 'stable',
-    'version' => '1.3.0',
+    'version' => '1.3.1',
     'constraints' => [
         'depends' => [
             'typo3' => '10.0.0-10.4.99',
