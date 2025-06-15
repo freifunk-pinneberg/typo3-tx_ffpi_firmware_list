@@ -3,6 +3,7 @@
       data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 <f:section name="content">
+    <f:spaceless>
     <table class="contenttable firmware-list">
         <thead>
         <tr>
@@ -18,7 +19,7 @@
             <tr id="{unifiedRouterIdentifier}">
                 <td>
                     <f:if condition="{router.router.icon}">
-                        <f:image class="router-image" src="{router.router.icon}" width="150" />
+                        <img loading="lazy" width="150" height="150" class="router-image" src="{f:uri.image(src: router.router.icon)}" alt="" />
                     </f:if>
                 </td>
                 <td><f:translate key="LLL:EXT:ffpi_firmware_list/Resources/Private/Language/router_names.xlf:{router.router.router}"><firmware:routerNameFallback unifiedRouterIdentifier="{router.router.router}" /></f:translate></td>
@@ -67,5 +68,6 @@
             </tr>
         </f:for>
     </table>
+    </f:spaceless>
 </f:section>
 </html>
