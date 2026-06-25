@@ -1,5 +1,5 @@
 <?php
 
-defined('TYPO3_MODE') || die('Access denied.');
+declare(strict_types=1);
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile('ffpi_firmware_list', 'Configuration/TypoScript', 'Firmware Liste');
+defined('TYPO3') || die('Access denied.');

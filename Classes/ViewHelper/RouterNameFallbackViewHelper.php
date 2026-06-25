@@ -2,8 +2,7 @@
 
 namespace FFPI\FfpiFirmwareList\ViewHelper;
 
-use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
-use \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 class RouterNameFallbackViewHelper extends AbstractViewHelper
 {
@@ -61,15 +60,9 @@ class RouterNameFallbackViewHelper extends AbstractViewHelper
         $this->registerArgument('unifiedRouterIdentifier', 'string', '', true);
     }
 
-    /**
-     * @param array $arguments
-     * @param \Closure $renderChildrenClosure
-     * @param RenderingContextInterface $renderingContext
-     * @return string
-     */
-    public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext): string
+    public function render(): string
     {
-        $routerName = $arguments['unifiedRouterIdentifier'];
+        $routerName = (string)$this->arguments['unifiedRouterIdentifier'];
         $count = 0;
         foreach (self::$manufacturer as $key => $value) {
             $routerName = str_replace($key . '-', $value . ' ', $routerName, $count);
