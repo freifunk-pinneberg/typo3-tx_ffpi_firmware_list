@@ -54,6 +54,14 @@ class RouterNameFallbackViewHelper extends AbstractViewHelper
         'zyxel' => 'ZyXEL'
     ];
 
+    /**
+     * Cache repeated router identifier fallback calculations within one PHP request.
+     * Firmware lists often render the same router names multiple times.
+     *
+     * @var array<string, string>
+     */
+    protected static array $routerNameCache = [];
+
     public function initializeArguments(): void
     {
         parent::initializeArguments();
@@ -63,13 +71,20 @@ class RouterNameFallbackViewHelper extends AbstractViewHelper
     public function render(): string
     {
         $routerName = (string)$this->arguments['unifiedRouterIdentifier'];
+
+        if (isset(self::$routerNameCache[$routerName])) {
+            return self::$routerNameCache[$routerName];
+        }
+
+        $fallbackRouterName = $routerName;
         $count = 0;
         foreach (self::$manufacturer as $key => $value) {
-            $routerName = str_replace($key . '-', $value . ' ', $routerName, $count);
+            $fallbackRouterName = str_replace($key . '-', $value . ' ', $fallbackRouterName, $count);
             if ($count > 0) {
                 break;
             }
         }
-        return $routerName;
+
+        return self::$routerNameCache[$routerName] = $fallbackRouterName;
     }
 }
