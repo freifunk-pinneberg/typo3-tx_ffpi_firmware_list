@@ -2,7 +2,7 @@
   "name": "ffpi/firmware-list",
   "type": "typo3-cms-extension",
   "description": "Freifunk Firmware List",
-  "license": "GPL-3.0",
+  "license": "GPL-3.0-only",
   "authors": [
     {
       "name": "Kevin Quiatkowski",
@@ -10,7 +10,11 @@
     }
   ],
   "require": {
-    "typo3/cms-core": "10.0.0 - 11.5.99"
+    "php": ">=8.2",
+    "typo3/cms-core": "^12.4 || ^13.4",
+    "typo3/cms-extbase": "^12.4 || ^13.4",
+    "typo3/cms-fluid": "^12.4 || ^13.4",
+    "typo3/cms-frontend": "^12.4 || ^13.4"
   },
   "autoload": {
     "psr-4": {

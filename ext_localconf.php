@@ -1,6 +1,6 @@
 <?php
 
-defined('TYPO3_MODE') || die('Access denied.');
+defined('TYPO3') || die('Access denied.');
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'FfpiFirmwareList',
@@ -14,10 +14,6 @@ defined('TYPO3_MODE') || die('Access denied.');
     ]
 );
 
-// wizards
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-    '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:ffpi_firmware_list/Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig">'
-);
 $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
 $iconRegistry->registerIcon(
     'ffpi_firmware_list-plugin-firmwarelist',

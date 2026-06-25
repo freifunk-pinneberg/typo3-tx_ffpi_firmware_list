@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'ctrl' => [
         'title' => 'LLL:EXT:ffpi_firmware_list/Resources/Private/Language/locallang.xlf:tx_ffpifirmwarelist_domain_model_firmwareversiondetail',
@@ -8,7 +10,6 @@ return [
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
         'versioningWS' => false,
-
         'languageField' => 'sys_language_uid',
         'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
@@ -18,7 +19,7 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'node_id,node_name,role,online,last_change,',
+        'searchFields' => 'version,gluon_release,openwrt_release,additional_notes,git',
         'iconfile' => 'EXT:core/Resources/Public/Icons/T3Icons/svgs/actions/actions-git.svg',
     ],
     'types' => [
@@ -32,13 +33,6 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'special' => 'languages',
-                'items' => [
-                    [
-                        'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages',
-                        -1,
-                        'flags-multiple'
-                    ]
-                ],
                 'default' => 0,
             ],
         ],
@@ -48,9 +42,6 @@ return [
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
-                'items' => [
-                    ['', 0],
-                ],
                 'foreign_table' => 'tx_ffpifirmwarelist_domain_model_firmwareversiondetail',
                 'foreign_table_where' => 'AND tx_ffpifirmwarelist_domain_model_firmwareversiondetail.pid=###CURRENT_PID### AND tx_ffpifirmwarelist_domain_model_firmwareversiondetail.sys_language_uid IN (-1,0)',
             ],
@@ -65,11 +56,6 @@ return [
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
             'config' => [
                 'type' => 'check',
-                'items' => [
-                    '1' => [
-                        '0' => 'LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.enabled'
-                    ]
-                ],
             ],
         ],
         'starttime' => [
@@ -77,11 +63,7 @@ return [
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'size' => 13,
-                'eval' => 'datetime',
-                'checkbox' => 0,
+                'type' => 'datetime',
                 'default' => 0,
                 'range' => [
                     'lower' => strtotime('today midnight')
@@ -93,11 +75,7 @@ return [
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'size' => 13,
-                'eval' => 'datetime',
-                'checkbox' => 0,
+                'type' => 'datetime',
                 'default' => 0,
                 'range' => [
                     'lower' => strtotime('today midnight')
@@ -138,6 +116,7 @@ return [
             'label' => 'LLL:EXT:ffpi_firmware_list/Resources/Private/Language/locallang.xlf:tx_ffpifirmwarelist_domain_model_firmwareversiondetail.has_security_issues',
             'config' => [
                 'type' => 'check',
+                'renderType' => 'checkboxToggle',
                 'l10n_mode' => 'exclude'
             ],
         ],

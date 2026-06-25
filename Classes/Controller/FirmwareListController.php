@@ -4,6 +4,7 @@ namespace FFPI\FfpiFirmwareList\Controller;
 
 use FFPI\FfpiFirmwareList\Domain\Repository\FirmwareVersionDetailRepository;
 use FFPI\FfpiFirmwareList\Utility\FilenameUtility;
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Cache\CacheManager;
 use TYPO3\CMS\Core\Page\AssetCollector;
 use TYPO3\CMS\Core\Resource\File;
@@ -21,26 +22,23 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 class FirmwareListController extends ActionController
 {
     /** @var array<string> $folder */
-    protected $folder;
+    protected array $folder = [];
 
     /** @var array<string> $blacklistedPathSegments */
-    protected $blacklistedPathSegments = [];
+    protected array $blacklistedPathSegments = [];
 
-    /** @var FirmwareVersionDetailRepository */
-    protected $firmwareVersionDetailRepository;
-
-    public function injectFirmwareVersionDetailRepository(FirmwareVersionDetailRepository $firmwareVersionDetailRepository): void
-    {
-        $this->firmwareVersionDetailRepository = $firmwareVersionDetailRepository;
+    public function __construct(
+        protected readonly FirmwareVersionDetailRepository $firmwareVersionDetailRepository
+    ) {
     }
 
     protected function initializeAction(): void
     {
-        $this->folder = explode(',', $this->settings['folder']);
-        $this->blacklistedPathSegments = array_map('trim', explode(',', $this->settings['blacklistet_path_segments']));
+        $this->folder = GeneralUtility::trimExplode(',', (string)($this->settings['folder'] ?? ''), true);
+        $this->blacklistedPathSegments = GeneralUtility::trimExplode(',', (string)($this->settings['blacklistet_path_segments'] ?? ''), true);
     }
 
-    public function listAction(): void
+    public function listAction(): ResponseInterface
     {
         // CSS zum generierten HTML hinzufügen
         $assetCollector = GeneralUtility::makeInstance(AssetCollector::class);
@@ -48,7 +46,9 @@ class FirmwareListController extends ActionController
 
         // Cache für die gesamte Firmwareliste
         $cacheManager = GeneralUtility::makeInstance(CacheManager::class);
-        $cacheKey = 'ffpi_firmware_list_cache_' . $this->configurationManager->getContentObject()->data['uid'];;
+        $contentObject = $this->request->getAttribute('currentContentObject');
+        $contentElementUid = (int)($contentObject->data['uid'] ?? 0);
+        $cacheKey = 'ffpi_firmware_list_cache_' . $contentElementUid;
         $cache = $cacheManager->getCache('ffpi_firmware_list_cache');
 
         $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
@@ -85,14 +85,14 @@ class FirmwareListController extends ActionController
                     //$firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['sysupgrade']['file']['md5'] = $file->getStorage()->hashFile($file, 'md5');
                     $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['sysupgrade']['file']['sha256'] = hash_file('sha256', $file->getForLocalProcessing(false));
                     $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['sysupgrade']['file']['firmwareDetails'] = $this->firmwareVersionDetailRepository->findOneByVersion($firmwareParts['firmwareVersion']);
-                } elseif($firmwareParts['factory']) {
+                } elseif ($firmwareParts['factory']) {
                     $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['factory']['firmwareParts'] = $firmwareParts;
                     $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['factory']['file'] = $file->toArray();
                     $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['factory']['file']['publicUrl'] = $file->getPublicUrl();
                     //$firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['factory']['file']['md5'] = $file->getStorage()->hashFile($file, 'md5');
                     $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['factory']['file']['sha256'] = hash_file('sha256', $file->getForLocalProcessing(false));
                     $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['factory']['file']['firmwareDetails'] = $this->firmwareVersionDetailRepository->findOneByVersion($firmwareParts['firmwareVersion']);
-                } elseif ($firmwareParts['other']){
+                } elseif ($firmwareParts['other']) {
                     $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['other']['firmwareParts'] = $firmwareParts;
                     $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['other']['file'] = $file->toArray();
                     $firmwareList[$unifiedRouterIdentifier]['firmware'][$firmwareParts['firmwareVersion']]['other']['file']['publicUrl'] = $file->getPublicUrl();
@@ -175,5 +175,7 @@ class FirmwareListController extends ActionController
         }
         $this->view->assign('settings', $this->settings);
         $this->view->assign('firmwareList', $firmwareList);
+
+        return $this->htmlResponse();
     }
 }
