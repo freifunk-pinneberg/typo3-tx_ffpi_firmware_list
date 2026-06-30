@@ -8,7 +8,6 @@ return [
         'label' => 'version',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'versioningWS' => false,
         'languageField' => 'sys_language_uid',
         'transOrigPointerField' => 'l10n_parent',
@@ -129,8 +128,7 @@ return [
         'git' => [
             'label' => 'LLL:EXT:ffpi_firmware_list/Resources/Private/Language/locallang.xlf:tx_ffpifirmwarelist_domain_model_firmwareversiondetail.git',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputLink',
+                'type' => 'link',
                 'l10n_mode' => 'exclude'
             ],
         ],

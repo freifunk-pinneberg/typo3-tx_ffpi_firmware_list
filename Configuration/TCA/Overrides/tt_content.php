@@ -2,17 +2,23 @@
 
 declare(strict_types=1);
 
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 defined('TYPO3') || die('Access denied.');
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+ExtensionUtility::registerPlugin(
     'FfpiFirmwareList',
     'Firmwarelist',
-    'LLL:EXT:ffpi_firmware_list/Resources/Private/Language/locallang.xlf:tx_ffpifirmwarelist_firmwarelist.title'
+    'LLL:EXT:ffpi_firmware_list/Resources/Private/Language/locallang.xlf:tx_ffpifirmwarelist_firmwarelist.title',
+    null,
+    'list'
 );
 
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['ffpifirmwarelist_firmwarelist'] = 'pi_flexform';
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-    'ffpifirmwarelist_firmwarelist',
+ExtensionManagementUtility::addToAllTCAtypes('tt_content', '--div--;Configuration,pi_flexform,', 'ffpifirmwarelist_firmwarelist', 'after:subheader');
+ExtensionManagementUtility::addPiFlexFormValue(
+    '*',
     // Flexform configuration schema file
-    'FILE:EXT:ffpi_firmware_list/Configuration/FlexForms/FirmwareList.xml'
+    'FILE:EXT:ffpi_firmware_list/Configuration/FlexForms/FirmwareList.xml',
+    'ffpifirmwarelist_firmwarelist'
 );

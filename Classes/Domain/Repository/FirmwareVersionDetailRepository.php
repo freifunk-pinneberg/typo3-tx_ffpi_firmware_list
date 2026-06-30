@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace FFPI\FfpiFirmwareList\Domain\Repository;
 
 use FFPI\FfpiFirmwareList\Domain\Model\FirmwareVersionDetail;
